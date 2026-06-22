@@ -1,0 +1,201 @@
+[
+  { "id": "haksiz-cana-kiyma", "title": "Haksız Yere Cana Kıymanın Yasaklanması", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Bir cana haksız yere kıymak dört gelenekte de ağır biçimde yasaklanır; can dokunulmazlığı ortak ilkedir.",
+    "refs": { "kuran": "17:33", "tevrat": "Exodus 20:13", "incil": "Matthew 5:21" } },
+
+  { "id": "hirsizlik-yasagi", "title": "Hırsızlığın Yasaklanması", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Başkasının malını haksızca almak dört gelenekte de yasaklanan temel bir suçtur.",
+    "refs": { "kuran": "5:38", "tevrat": "Exodus 20:15", "incil": "Mark 10:19" } },
+
+  { "id": "zina-yasagi", "title": "Zinanın Yasaklanması", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Evlilik dışı cinsel ilişki dört gelenekte de yasaklanır; iffet ortak bir ahlaki değerdir.",
+    "refs": { "kuran": "17:32", "tevrat": "Exodus 20:14", "incil": "Matthew 5:27-28" } },
+
+  { "id": "yalan-sahitlik", "title": "Yalancı Şahitliğin Yasaklanması", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Yalan tanıklık ve iftira dört gelenekte de yasaklanır; doğru söz ve adil tanıklık esastır.",
+    "refs": { "kuran": "25:72", "tevrat": "Exodus 20:16", "incil": "Luke 18:20" } },
+
+  { "id": "ana-babaya-saygi", "title": "Ana Babaya Saygı ve İyilik", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Ebeveyne saygı ve iyilik dört gelenekte de güçlü bir buyruk olarak yer alır.",
+    "refs": { "kuran": "17:23-24", "tevrat": "Exodus 20:12", "incil": "Matthew 15:4" } },
+
+  { "id": "kisas-goze-goz", "title": "Kısas: Suça Denk Karşılık", "category": "Ahlak/Hukuk", "similarity": "near_identical",
+    "summary": "Suça denk karşılık (kısas) ilkesi ve onu aşan af/merhamet çağrısı geleneklerde birlikte ele alınır.",
+    "refs": { "kuran": "5:45", "tevrat": "Leviticus 24:19-20", "incil": "Matthew 5:38-39" } },
+
+  { "id": "faiz-yasagi", "title": "Faizin/Tefeciliğin Yasaklanması", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "İhtiyaç sahibinden faiz almak geleneklerde eleştirilir; karşılıksız borç ve yardım öne çıkar.",
+    "refs": { "kuran": "2:275", "tevrat": "Exodus 22:25", "zebur": "Psalms 15:5", "incil": "Luke 6:34-35" } },
+
+  { "id": "dogru-olcu-tarti", "title": "Dürüst Ölçü ve Tartı", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Alışverişte dürüstlük, eksik ölçüp tartmama dört gelenekte de vurgulanır.",
+    "refs": { "kuran": "17:35", "tevrat": "Leviticus 19:35-36", "incil": "Luke 16:10" } },
+
+  { "id": "adaletle-hukum", "title": "Adaletle Hükmetmek ve Rüşvet", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Tarafsız ve adil yargı, rüşvetten kaçınma geleneklerde ortak bir yönetim ilkesidir.",
+    "refs": { "kuran": "5:8", "tevrat": "Deuteronomy 16:19", "zebur": "Psalms 82:3-4", "incil": "John 7:24" } },
+
+  { "id": "giybet-iftira", "title": "Gıybet ve İftiradan Kaçınma", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Arkadan konuşma, dedikodu ve karalama geleneklerde yerilir; dile sahip çıkma öğütlenir.",
+    "refs": { "kuran": "49:12", "tevrat": "Leviticus 19:16", "zebur": "Psalms 34:13", "incil": "Matthew 12:36" } },
+
+  { "id": "soze-sadakat", "title": "Söze ve Yemine Sadakat", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Verilen sözü ve yemini tutmak geleneklerde güvenilirliğin temeli olarak görülür.",
+    "refs": { "kuran": "16:91", "tevrat": "Numbers 30:2", "zebur": "Psalms 15:4", "incil": "Matthew 5:33-37" } },
+
+  { "id": "affetme-ofke", "title": "Affetmek ve Öfkeyi Yenmek", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Bağışlama ve öfkeyi dizginleme geleneklerde erdem olarak öne çıkar.",
+    "refs": { "kuran": "42:40", "tevrat": "Genesis 50:19-21", "incil": "Matthew 6:14-15" } },
+
+  { "id": "iyilikle-karsilik", "title": "Kötülüğe İyilikle Karşılık", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Düşmana dahi iyilik etmek, kötülüğü iyilikle savmak geleneklerde öğütlenir.",
+    "refs": { "kuran": "41:34", "tevrat": "Exodus 23:4-5", "incil": "Matthew 5:44" } },
+
+  { "id": "tevazu-kibir", "title": "Tevazu ve Kibirden Kaçınma", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Büyüklenmekten sakınma ve alçakgönüllülük geleneklerde ortak bir ahlaki ölçüdür.",
+    "refs": { "kuran": "31:18", "tevrat": "Deuteronomy 8:14", "zebur": "Psalms 138:6", "incil": "Matthew 23:12" } },
+
+  { "id": "guzel-soz", "title": "Güzel ve Yumuşak Söz", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Güzel, ölçülü ve incitmeyen konuşma geleneklerde değerli görülür.",
+    "refs": { "kuran": "17:53", "zebur": "Psalms 141:3", "incil": "Matthew 12:34" } },
+
+  { "id": "tek-tanri-inanci", "title": "Tek Tanrı İnancı", "category": "İnanç/Akide", "similarity": "near_identical",
+    "summary": "Tek ve eşsiz bir Tanrı'ya iman dört gelenekte de inancın temel taşıdır.",
+    "refs": { "kuran": "112:1-4", "tevrat": "Deuteronomy 6:4", "zebur": "Psalms 86:10", "incil": "Mark 12:29" } },
+
+  { "id": "putperestlik-yasagi", "title": "Putperestliğin Yasaklanması", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "İnsan eliyle yapılmış putlara tapınmanın anlamsızlığı geleneklerde ortak temadır.",
+    "refs": { "kuran": "16:20-21", "tevrat": "Exodus 20:3-5", "zebur": "Psalms 115:4-8", "incil": "Matthew 4:10" } },
+
+  { "id": "tanri-merhameti", "title": "Tanrı'nın Merhameti", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın bağışlayıcı ve merhametli oluşu geleneklerde sık vurgulanan bir niteliktir.",
+    "refs": { "kuran": "7:156", "tevrat": "Exodus 34:6", "zebur": "Psalms 103:8", "incil": "Luke 6:36" } },
+
+  { "id": "tevekkul-guven", "title": "Tanrı'ya Güven ve Tevekkül", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Kaygı yerine Tanrı'ya güvenmek ve dayanmak geleneklerde teşvik edilir.",
+    "refs": { "kuran": "65:3", "tevrat": "Deuteronomy 31:6", "zebur": "Psalms 37:5", "incil": "Matthew 6:25-26" } },
+
+  { "id": "tanri-korkusu-hikmet", "title": "Tanrı Korkusu ve Hikmet", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'ya karşı saygı ve sakınmanın bilgeliğin temeli sayılması geleneklerde ortaktır.",
+    "refs": { "kuran": "35:28", "tevrat": "Deuteronomy 10:12", "zebur": "Psalms 111:10", "incil": "Matthew 10:28" } },
+
+  { "id": "dua-yakaris", "title": "Dua ve Yakarış", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Tanrı'ya yönelip dua etmek ve O'nun duayı işitmesi geleneklerde ortak bir motiftir.",
+    "refs": { "kuran": "2:186", "tevrat": "Deuteronomy 4:7", "zebur": "Psalms 145:18", "incil": "Matthew 7:7" } },
+
+  { "id": "sukur", "title": "Şükür ve Nimete Hamd", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Verilen nimetlere şükretmek geleneklerde imanın bir göstergesi olarak görülür.",
+    "refs": { "kuran": "14:7", "tevrat": "Deuteronomy 8:10", "zebur": "Psalms 100:4", "incil": "Luke 17:15-18" } },
+
+  { "id": "tovbe-bagislanma", "title": "Tövbe ve Bağışlanma", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Hatadan dönüş ve Tanrı'nın bağışlaması geleneklerde umut verici ortak bir temadır.",
+    "refs": { "kuran": "39:53", "tevrat": "Deuteronomy 30:2-3", "zebur": "Psalms 51:1-3", "incil": "Luke 15:7" } },
+
+  { "id": "sabir", "title": "Sabır ve Metanet", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Zorluk karşısında sabır ve dayanma gücü geleneklerde öğütlenen bir erdemdir.",
+    "refs": { "kuran": "2:153", "zebur": "Psalms 37:7", "incil": "Luke 21:19" } },
+
+  { "id": "oruc", "title": "Oruç ve Nefsi Terbiye", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Oruç ve nefsi kısma yoluyla manevi arınma geleneklerde yer alan bir ibadettir.",
+    "refs": { "kuran": "2:183", "tevrat": "Leviticus 16:29", "zebur": "Psalms 35:13", "incil": "Matthew 6:16-18" } },
+
+  { "id": "sadaka-comertlik", "title": "Sadaka ve Cömertlik", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "İhtiyaç sahibine gizlice ve gönülden yardım etmek geleneklerde övülen bir davranıştır.",
+    "refs": { "kuran": "2:261", "tevrat": "Deuteronomy 15:7-8", "zebur": "Psalms 41:1", "incil": "Matthew 6:3-4" } },
+
+  { "id": "dinlenme-gunu", "title": "Dinlenme/İbadet Günü", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Haftalık ibadet ve dinlenme günü uygulaması geleneklerde farklı biçimlerde yer alır.",
+    "refs": { "kuran": "62:9", "tevrat": "Exodus 20:8-10", "incil": "Mark 2:27" } },
+
+  { "id": "yoksula-yetime-yardim", "title": "Yoksula ve Yetime Yardım", "category": "Ahlak/Toplum", "similarity": "near_identical",
+    "summary": "Yetimi gözetmek, yoksula yardım etmek dört gelenekte de güçlü bir ahlaki buyruktur.",
+    "refs": { "kuran": "93:9-10", "tevrat": "Deuteronomy 24:19-21", "zebur": "Psalms 82:3", "incil": "Matthew 25:35-36" } },
+
+  { "id": "yetim-mali", "title": "Yetimin Malını Korumak", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Yetimin hakkını ve malını korumak, ona haksızlık etmemek geleneklerde vurgulanır.",
+    "refs": { "kuran": "4:10", "tevrat": "Exodus 22:22" } },
+
+  { "id": "garibe-iyilik", "title": "Yabancıya ve Garibe İyilik", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Yoldaki yabancıya ve düşküne yardım, onu koruyup gözetme geleneklerde öğütlenir.",
+    "refs": { "kuran": "90:13-16", "tevrat": "Leviticus 19:34", "incil": "Luke 10:33-34" } },
+
+  { "id": "komsu-sevgisi", "title": "Komşuyu/İnsanı Sevmek", "category": "Ahlak/Toplum", "similarity": "near_identical",
+    "summary": "Komşuyu kendisi gibi sevmek geleneklerde toplumsal ahlakın özü olarak sunulur.",
+    "refs": { "kuran": "4:36", "tevrat": "Leviticus 19:18", "incil": "Matthew 22:39" } },
+
+  { "id": "goklerin-yaratilisi", "title": "Göklerin ve Yerin Yaratılışı", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Evrenin Tanrı tarafından yaratılışı geleneklerde inancın başlangıç anlatısıdır.",
+    "refs": { "kuran": "2:29", "tevrat": "Genesis 1:1", "zebur": "Psalms 33:6", "incil": "John 1:1-3" } },
+
+  { "id": "insanin-yaratilisi", "title": "İnsanın Topraktan Yaratılışı", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İnsanın topraktan/çamurdan yaratıldığı anlatısı geleneklerde ortaktır.",
+    "refs": { "kuran": "15:26", "tevrat": "Genesis 2:7", "zebur": "Psalms 103:14" } },
+
+  { "id": "yasak-agac", "title": "Cennette Yasak Ağaç", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İlk insanın cennette bir ağaçtan men edilmesi anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "2:35", "tevrat": "Genesis 2:16-17" } },
+
+  { "id": "kabil-habil", "title": "İlk Cinayet: Kabil ve Habil", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İki kardeşten birinin diğerini öldürmesi anlatısı geleneklerde ortak bir kıssadır.",
+    "refs": { "kuran": "5:27-31", "tevrat": "Genesis 4:8-10" } },
+
+  { "id": "nuh-tufani", "title": "Nuh ve Tufan", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Nuh, gemi ve büyük tufan anlatısı geleneklerde paylaşılan bir kıssadır.",
+    "refs": { "kuran": "11:40", "tevrat": "Genesis 7:1", "incil": "Matthew 24:37-39" } },
+
+  { "id": "ibrahim-misafirleri", "title": "İbrahim'in Misafirleri ve Müjde", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İbrahim'e gelen elçi-misafirler ve çocuk müjdesi anlatısı geleneklerde ortaktır.",
+    "refs": { "kuran": "51:24-28", "tevrat": "Genesis 18:1-8" } },
+
+  { "id": "ibrahim-kurban", "title": "İbrahim'in Sınanması", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İbrahim'in oğlunu kurban etme sınavı geleneklerde teslimiyetin simgesi olarak anlatılır.",
+    "refs": { "kuran": "37:102-107", "tevrat": "Genesis 22:9-12" } },
+
+  { "id": "yusuf-kissasi", "title": "Yusuf'un Kuyuya Atılması", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Kardeşlerinin Yusuf'u kuyuya atıp satması anlatısı geleneklerde ortaktır.",
+    "refs": { "kuran": "12:19-20", "tevrat": "Genesis 37:28" } },
+
+  { "id": "musa-yanan-cali", "title": "Musa ve Yanan Çalı", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Musa'ya ateş/çalı başında gelen ilahi çağrı anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "20:11-14", "tevrat": "Exodus 3:4-6" } },
+
+  { "id": "on-emir-levhalar", "title": "Levhalar ve On Emir", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Musa'ya verilen levhalar ve temel buyruklar geleneklerde ortak bir anlatıdır.",
+    "refs": { "kuran": "7:145", "tevrat": "Exodus 20:1-3" } },
+
+  { "id": "firavunun-bogulmasi", "title": "Firavun'un Boğulması", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "İsrailoğullarını kovalayan Firavun'un denizde boğulması anlatısı geleneklerde ortaktır.",
+    "refs": { "kuran": "10:90", "tevrat": "Exodus 14:27-28" } },
+
+  { "id": "olumden-sonra-dirilis", "title": "Ölümden Sonra Diriliş", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Ölülerin diriltilmesi inancı geleneklerde ahiret tasavvurunun merkezindedir.",
+    "refs": { "kuran": "22:7", "zebur": "Psalms 16:10", "incil": "John 5:28-29" } },
+
+  { "id": "hesap-amellerin-tartilmasi", "title": "Hesap Günü ve Amellerin Karşılığı", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Herkesin yaptığının karşılığını göreceği hesap günü geleneklerde ortak temadır.",
+    "refs": { "kuran": "99:7-8", "zebur": "Psalms 62:12", "incil": "Matthew 16:27" } },
+
+  { "id": "cennet-mukafat", "title": "Cennet ve Salihlerin Mükâfatı", "category": "Ahiret", "similarity": "thematic",
+    "summary": "İyilerin ödüllendirileceği esenlik yurdu tasavvuru geleneklerde paylaşılır.",
+    "refs": { "kuran": "2:25", "zebur": "Psalms 16:11", "incil": "Matthew 5:3-6" } },
+
+  { "id": "cehennem-azap", "title": "Cehennem ve Kötülerin Akıbeti", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Kötülük edenlerin karşılaşacağı azap tasavvuru geleneklerde ortak bir uyarıdır.",
+    "refs": { "kuran": "4:56", "zebur": "Psalms 9:17", "incil": "Matthew 25:41" } },
+
+  { "id": "yiyecek-domuz", "title": "Yiyecek Yasakları (Domuz Eti)", "category": "İnanç/Hukuk", "similarity": "thematic",
+    "summary": "Bazı yiyeceklerin (ör. domuz eti) helal/haram statüsü geleneklerde farklı biçimlerde ele alınır.",
+    "refs": { "kuran": "2:173", "tevrat": "Leviticus 11:7-8", "incil": "Mark 7:15" } },
+
+  { "id": "isanin-dogumu", "title": "İsa'nın Doğumunun Müjdesi", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Meryem'e bir çocuk (İsa) müjdesinin verilmesi anlatısı iki gelenekte paylaşılır.",
+    "refs": { "kuran": "3:45-47", "incil": "Luke 1:30-31" } },
+
+  { "id": "isanin-mucizeleri", "title": "İsa'nın Mucizeleri", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "İsa'nın hastaları iyileştirmesi ve diğer mucizeleri iki gelenekte de anılır.",
+    "refs": { "kuran": "3:49", "incil": "Matthew 11:4-5" } },
+
+  { "id": "haset-tamah", "title": "Haset ve Aç Gözlülükten Kaçınma", "category": "Ahlak/Toplum", "similarity": "near_identical",
+    "summary": "Başkasının sahip olduklarına göz dikme ve doymak bilmez hırs geleneklerde yerilir.",
+    "refs": { "kuran": "4:32", "tevrat": "Exodus 20:17", "incil": "Luke 12:15" } }
+]

@@ -1,0 +1,25 @@
+{
+  "_comment": "Elle hazırlanmış ÖRNEK yapay zeka paralelleri (origin=ai). Tam 6236 ayet için tools/generate_parallels.py kullanılır. Bu dosya, küratörlü referanslarla birleştirilip assets/data/parallels.json üretir.",
+
+  "1:1":   [{ "book": "zebur",  "reference": "Mezmur 103:8",   "note": "Tanrı'nın merhametli ve lütufkâr oluşu", "origin": "ai" }],
+  "1:2":   [{ "book": "zebur",  "reference": "Mezmur 145:1-3", "note": "Âlemlerin Rabbine hamd ve övgü", "origin": "ai" }],
+  "1:3":   [{ "book": "tevrat", "reference": "Çıkış 34:6",     "note": "Tanrı'nın rahmet ve merhamet sıfatları", "origin": "ai" }],
+  "1:4":   [{ "book": "incil",  "reference": "Matta 16:27",    "note": "Herkesin amelinin karşılığını göreceği gün", "origin": "ai" },
+            { "book": "zebur",  "reference": "Mezmur 62:12",   "note": "Tanrı'nın herkese yaptığına göre karşılık vermesi", "origin": "ai" }],
+  "1:5":   [{ "book": "incil",  "reference": "Matta 4:10",     "note": "Yalnız Tanrı'ya kulluk", "origin": "ai" },
+            { "book": "zebur",  "reference": "Mezmur 121:1-2", "note": "Yardımın Tanrı'dan gelmesi", "origin": "ai" }],
+  "1:6":   [{ "book": "zebur",  "reference": "Mezmur 25:4-5",  "note": "Tanrı'dan doğru yolu ve öğretiyi isteme", "origin": "ai" }],
+  "1:7":   [{ "book": "zebur",  "reference": "Mezmur 1:6",     "note": "Doğruların yolu ile kötülerin yolunun ayrımı", "origin": "ai" }],
+
+  "2:255": [{ "book": "zebur",  "reference": "Mezmur 121:4",   "note": "Tanrı'nın uyuklamaması ve uyumaması (Âyetü'l-Kürsî ile koşutluk)", "origin": "ai" },
+            { "book": "tevrat", "reference": "Çıkış 3:14",     "note": "Kendiliğinden var olan, diri Tanrı", "origin": "ai" }],
+
+  "103:3": [{ "book": "zebur",  "reference": "Mezmur 1:1-3",   "note": "İman edip doğru iş yapanların kurtuluşu", "origin": "ai" }],
+
+  "113:1": [{ "book": "zebur",  "reference": "Mezmur 91:1-2",  "note": "Tanrı'ya sığınma ve korunma", "origin": "ai" }],
+  "113:3": [{ "book": "zebur",  "reference": "Mezmur 91:5",    "note": "Gecenin ve karanlığın dehşetinden korunma", "origin": "ai" }],
+  "113:5": [{ "book": "zebur",  "reference": "Mezmur 37:1",    "note": "Kötülük edenlere ve hasede karşı tutum", "origin": "ai" }],
+
+  "114:1": [{ "book": "zebur",  "reference": "Mezmur 91:2",    "note": "Tanrı'yı sığınak edinmek", "origin": "ai" }],
+  "114:4": [{ "book": "incil",  "reference": "Matta 6:13",     "note": "Kötü olandan ve vesveseden korunma duası", "origin": "ai" }]
+}

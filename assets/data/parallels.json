@@ -1,0 +1,1340 @@
+{
+  "1:1": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 103:8",
+      "note": "Tanrı'nın merhametli ve lütufkâr oluşu",
+      "origin": "ai"
+    }
+  ],
+  "1:2": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 145:1-3",
+      "note": "Âlemlerin Rabbine hamd ve övgü",
+      "origin": "ai"
+    }
+  ],
+  "1:3": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 34:6",
+      "note": "Tanrı'nın rahmet ve merhamet sıfatları",
+      "origin": "ai"
+    }
+  ],
+  "1:4": [
+    {
+      "book": "incil",
+      "reference": "Matta 16:27",
+      "note": "Herkesin amelinin karşılığını göreceği gün",
+      "origin": "ai"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 62:12",
+      "note": "Tanrı'nın herkese yaptığına göre karşılık vermesi",
+      "origin": "ai"
+    }
+  ],
+  "1:5": [
+    {
+      "book": "incil",
+      "reference": "Matta 4:10",
+      "note": "Yalnız Tanrı'ya kulluk",
+      "origin": "ai"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 121:1-2",
+      "note": "Yardımın Tanrı'dan gelmesi",
+      "origin": "ai"
+    }
+  ],
+  "1:6": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 25:4-5",
+      "note": "Tanrı'dan doğru yolu ve öğretiyi isteme",
+      "origin": "ai"
+    }
+  ],
+  "1:7": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 1:6",
+      "note": "Doğruların yolu ile kötülerin yolunun ayrımı",
+      "origin": "ai"
+    }
+  ],
+  "2:25": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 16:11",
+      "note": "Cennet ve Salihlerin Mükâfatı",
+      "origin": "curated",
+      "themeId": "cennet-mukafat"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:3-6",
+      "note": "Cennet ve Salihlerin Mükâfatı",
+      "origin": "curated",
+      "themeId": "cennet-mukafat"
+    }
+  ],
+  "2:29": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 1:1",
+      "note": "Göklerin ve Yerin Yaratılışı",
+      "origin": "curated",
+      "themeId": "goklerin-yaratilisi"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 33:6",
+      "note": "Göklerin ve Yerin Yaratılışı",
+      "origin": "curated",
+      "themeId": "goklerin-yaratilisi"
+    },
+    {
+      "book": "incil",
+      "reference": "Yuhanna 1:1-3",
+      "note": "Göklerin ve Yerin Yaratılışı",
+      "origin": "curated",
+      "themeId": "goklerin-yaratilisi"
+    }
+  ],
+  "2:35": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 2:16-17",
+      "note": "Cennette Yasak Ağaç",
+      "origin": "curated",
+      "themeId": "yasak-agac"
+    }
+  ],
+  "2:153": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 37:7",
+      "note": "Sabır ve Metanet",
+      "origin": "curated",
+      "themeId": "sabir"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 21:19",
+      "note": "Sabır ve Metanet",
+      "origin": "curated",
+      "themeId": "sabir"
+    }
+  ],
+  "2:173": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 11:7-8",
+      "note": "Yiyecek Yasakları (Domuz Eti)",
+      "origin": "curated",
+      "themeId": "yiyecek-domuz"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 7:15",
+      "note": "Yiyecek Yasakları (Domuz Eti)",
+      "origin": "curated",
+      "themeId": "yiyecek-domuz"
+    }
+  ],
+  "2:183": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 16:29",
+      "note": "Oruç ve Nefsi Terbiye",
+      "origin": "curated",
+      "themeId": "oruc"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 35:13",
+      "note": "Oruç ve Nefsi Terbiye",
+      "origin": "curated",
+      "themeId": "oruc"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 6:16-18",
+      "note": "Oruç ve Nefsi Terbiye",
+      "origin": "curated",
+      "themeId": "oruc"
+    }
+  ],
+  "2:186": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 4:7",
+      "note": "Dua ve Yakarış",
+      "origin": "curated",
+      "themeId": "dua-yakaris"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 145:18",
+      "note": "Dua ve Yakarış",
+      "origin": "curated",
+      "themeId": "dua-yakaris"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 7:7",
+      "note": "Dua ve Yakarış",
+      "origin": "curated",
+      "themeId": "dua-yakaris"
+    }
+  ],
+  "2:255": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 121:4",
+      "note": "Tanrı'nın uyuklamaması ve uyumaması (Âyetü'l-Kürsî ile koşutluk)",
+      "origin": "ai"
+    },
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 3:14",
+      "note": "Kendiliğinden var olan, diri Tanrı",
+      "origin": "ai"
+    }
+  ],
+  "2:261": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 15:7-8",
+      "note": "Sadaka ve Cömertlik",
+      "origin": "curated",
+      "themeId": "sadaka-comertlik"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 41:1",
+      "note": "Sadaka ve Cömertlik",
+      "origin": "curated",
+      "themeId": "sadaka-comertlik"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 6:3-4",
+      "note": "Sadaka ve Cömertlik",
+      "origin": "curated",
+      "themeId": "sadaka-comertlik"
+    }
+  ],
+  "2:275": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 22:25",
+      "note": "Faizin/Tefeciliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "faiz-yasagi"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 15:5",
+      "note": "Faizin/Tefeciliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "faiz-yasagi"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 6:34-35",
+      "note": "Faizin/Tefeciliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "faiz-yasagi"
+    }
+  ],
+  "3:45": [
+    {
+      "book": "incil",
+      "reference": "Luka 1:30-31",
+      "note": "İsa'nın Doğumunun Müjdesi",
+      "origin": "curated",
+      "themeId": "isanin-dogumu"
+    }
+  ],
+  "3:46": [
+    {
+      "book": "incil",
+      "reference": "Luka 1:30-31",
+      "note": "İsa'nın Doğumunun Müjdesi",
+      "origin": "curated",
+      "themeId": "isanin-dogumu"
+    }
+  ],
+  "3:47": [
+    {
+      "book": "incil",
+      "reference": "Luka 1:30-31",
+      "note": "İsa'nın Doğumunun Müjdesi",
+      "origin": "curated",
+      "themeId": "isanin-dogumu"
+    }
+  ],
+  "3:49": [
+    {
+      "book": "incil",
+      "reference": "Matta 11:4-5",
+      "note": "İsa'nın Mucizeleri",
+      "origin": "curated",
+      "themeId": "isanin-mucizeleri"
+    }
+  ],
+  "4:10": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 22:22",
+      "note": "Yetimin Malını Korumak",
+      "origin": "curated",
+      "themeId": "yetim-mali"
+    }
+  ],
+  "4:32": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:17",
+      "note": "Haset ve Aç Gözlülükten Kaçınma",
+      "origin": "curated",
+      "themeId": "haset-tamah"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 12:15",
+      "note": "Haset ve Aç Gözlülükten Kaçınma",
+      "origin": "curated",
+      "themeId": "haset-tamah"
+    }
+  ],
+  "4:36": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:18",
+      "note": "Komşuyu/İnsanı Sevmek",
+      "origin": "curated",
+      "themeId": "komsu-sevgisi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 22:39",
+      "note": "Komşuyu/İnsanı Sevmek",
+      "origin": "curated",
+      "themeId": "komsu-sevgisi"
+    }
+  ],
+  "4:56": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 9:17",
+      "note": "Cehennem ve Kötülerin Akıbeti",
+      "origin": "curated",
+      "themeId": "cehennem-azap"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 25:41",
+      "note": "Cehennem ve Kötülerin Akıbeti",
+      "origin": "curated",
+      "themeId": "cehennem-azap"
+    }
+  ],
+  "5:8": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 16:19",
+      "note": "Adaletle Hükmetmek ve Rüşvet",
+      "origin": "curated",
+      "themeId": "adaletle-hukum"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 82:3-4",
+      "note": "Adaletle Hükmetmek ve Rüşvet",
+      "origin": "curated",
+      "themeId": "adaletle-hukum"
+    },
+    {
+      "book": "incil",
+      "reference": "Yuhanna 7:24",
+      "note": "Adaletle Hükmetmek ve Rüşvet",
+      "origin": "curated",
+      "themeId": "adaletle-hukum"
+    }
+  ],
+  "5:27": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 4:8-10",
+      "note": "İlk Cinayet: Kabil ve Habil",
+      "origin": "curated",
+      "themeId": "kabil-habil"
+    }
+  ],
+  "5:28": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 4:8-10",
+      "note": "İlk Cinayet: Kabil ve Habil",
+      "origin": "curated",
+      "themeId": "kabil-habil"
+    }
+  ],
+  "5:29": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 4:8-10",
+      "note": "İlk Cinayet: Kabil ve Habil",
+      "origin": "curated",
+      "themeId": "kabil-habil"
+    }
+  ],
+  "5:30": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 4:8-10",
+      "note": "İlk Cinayet: Kabil ve Habil",
+      "origin": "curated",
+      "themeId": "kabil-habil"
+    }
+  ],
+  "5:31": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 4:8-10",
+      "note": "İlk Cinayet: Kabil ve Habil",
+      "origin": "curated",
+      "themeId": "kabil-habil"
+    }
+  ],
+  "5:38": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:15",
+      "note": "Hırsızlığın Yasaklanması",
+      "origin": "curated",
+      "themeId": "hirsizlik-yasagi"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 10:19",
+      "note": "Hırsızlığın Yasaklanması",
+      "origin": "curated",
+      "themeId": "hirsizlik-yasagi"
+    }
+  ],
+  "5:45": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 24:19-20",
+      "note": "Kısas: Suça Denk Karşılık",
+      "origin": "curated",
+      "themeId": "kisas-goze-goz"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:38-39",
+      "note": "Kısas: Suça Denk Karşılık",
+      "origin": "curated",
+      "themeId": "kisas-goze-goz"
+    }
+  ],
+  "7:145": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:1-3",
+      "note": "Levhalar ve On Emir",
+      "origin": "curated",
+      "themeId": "on-emir-levhalar"
+    }
+  ],
+  "7:156": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 34:6",
+      "note": "Tanrı'nın Merhameti",
+      "origin": "curated",
+      "themeId": "tanri-merhameti"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 103:8",
+      "note": "Tanrı'nın Merhameti",
+      "origin": "curated",
+      "themeId": "tanri-merhameti"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 6:36",
+      "note": "Tanrı'nın Merhameti",
+      "origin": "curated",
+      "themeId": "tanri-merhameti"
+    }
+  ],
+  "10:90": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 14:27-28",
+      "note": "Firavun'un Boğulması",
+      "origin": "curated",
+      "themeId": "firavunun-bogulmasi"
+    }
+  ],
+  "11:40": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 7:1",
+      "note": "Nuh ve Tufan",
+      "origin": "curated",
+      "themeId": "nuh-tufani"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 24:37-39",
+      "note": "Nuh ve Tufan",
+      "origin": "curated",
+      "themeId": "nuh-tufani"
+    }
+  ],
+  "12:19": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 37:28",
+      "note": "Yusuf'un Kuyuya Atılması",
+      "origin": "curated",
+      "themeId": "yusuf-kissasi"
+    }
+  ],
+  "12:20": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 37:28",
+      "note": "Yusuf'un Kuyuya Atılması",
+      "origin": "curated",
+      "themeId": "yusuf-kissasi"
+    }
+  ],
+  "14:7": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 8:10",
+      "note": "Şükür ve Nimete Hamd",
+      "origin": "curated",
+      "themeId": "sukur"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 100:4",
+      "note": "Şükür ve Nimete Hamd",
+      "origin": "curated",
+      "themeId": "sukur"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 17:15-18",
+      "note": "Şükür ve Nimete Hamd",
+      "origin": "curated",
+      "themeId": "sukur"
+    }
+  ],
+  "15:26": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 2:7",
+      "note": "İnsanın Topraktan Yaratılışı",
+      "origin": "curated",
+      "themeId": "insanin-yaratilisi"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 103:14",
+      "note": "İnsanın Topraktan Yaratılışı",
+      "origin": "curated",
+      "themeId": "insanin-yaratilisi"
+    }
+  ],
+  "16:20": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:3-5",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 115:4-8",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 4:10",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    }
+  ],
+  "16:21": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:3-5",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 115:4-8",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 4:10",
+      "note": "Putperestliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "putperestlik-yasagi"
+    }
+  ],
+  "16:91": [
+    {
+      "book": "tevrat",
+      "reference": "Çölde Sayım 30:2",
+      "note": "Söze ve Yemine Sadakat",
+      "origin": "curated",
+      "themeId": "soze-sadakat"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 15:4",
+      "note": "Söze ve Yemine Sadakat",
+      "origin": "curated",
+      "themeId": "soze-sadakat"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:33-37",
+      "note": "Söze ve Yemine Sadakat",
+      "origin": "curated",
+      "themeId": "soze-sadakat"
+    }
+  ],
+  "17:23": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:12",
+      "note": "Ana Babaya Saygı ve İyilik",
+      "origin": "curated",
+      "themeId": "ana-babaya-saygi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 15:4",
+      "note": "Ana Babaya Saygı ve İyilik",
+      "origin": "curated",
+      "themeId": "ana-babaya-saygi"
+    }
+  ],
+  "17:24": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:12",
+      "note": "Ana Babaya Saygı ve İyilik",
+      "origin": "curated",
+      "themeId": "ana-babaya-saygi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 15:4",
+      "note": "Ana Babaya Saygı ve İyilik",
+      "origin": "curated",
+      "themeId": "ana-babaya-saygi"
+    }
+  ],
+  "17:32": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:14",
+      "note": "Zinanın Yasaklanması",
+      "origin": "curated",
+      "themeId": "zina-yasagi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:27-28",
+      "note": "Zinanın Yasaklanması",
+      "origin": "curated",
+      "themeId": "zina-yasagi"
+    }
+  ],
+  "17:33": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:13",
+      "note": "Haksız Yere Cana Kıymanın Yasaklanması",
+      "origin": "curated",
+      "themeId": "haksiz-cana-kiyma"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:21",
+      "note": "Haksız Yere Cana Kıymanın Yasaklanması",
+      "origin": "curated",
+      "themeId": "haksiz-cana-kiyma"
+    }
+  ],
+  "17:35": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:35-36",
+      "note": "Dürüst Ölçü ve Tartı",
+      "origin": "curated",
+      "themeId": "dogru-olcu-tarti"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 16:10",
+      "note": "Dürüst Ölçü ve Tartı",
+      "origin": "curated",
+      "themeId": "dogru-olcu-tarti"
+    }
+  ],
+  "17:53": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 141:3",
+      "note": "Güzel ve Yumuşak Söz",
+      "origin": "curated",
+      "themeId": "guzel-soz"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 12:34",
+      "note": "Güzel ve Yumuşak Söz",
+      "origin": "curated",
+      "themeId": "guzel-soz"
+    }
+  ],
+  "20:11": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 3:4-6",
+      "note": "Musa ve Yanan Çalı",
+      "origin": "curated",
+      "themeId": "musa-yanan-cali"
+    }
+  ],
+  "20:12": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 3:4-6",
+      "note": "Musa ve Yanan Çalı",
+      "origin": "curated",
+      "themeId": "musa-yanan-cali"
+    }
+  ],
+  "20:13": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 3:4-6",
+      "note": "Musa ve Yanan Çalı",
+      "origin": "curated",
+      "themeId": "musa-yanan-cali"
+    }
+  ],
+  "20:14": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 3:4-6",
+      "note": "Musa ve Yanan Çalı",
+      "origin": "curated",
+      "themeId": "musa-yanan-cali"
+    }
+  ],
+  "22:7": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 16:10",
+      "note": "Ölümden Sonra Diriliş",
+      "origin": "curated",
+      "themeId": "olumden-sonra-dirilis"
+    },
+    {
+      "book": "incil",
+      "reference": "Yuhanna 5:28-29",
+      "note": "Ölümden Sonra Diriliş",
+      "origin": "curated",
+      "themeId": "olumden-sonra-dirilis"
+    }
+  ],
+  "25:72": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:16",
+      "note": "Yalancı Şahitliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "yalan-sahitlik"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 18:20",
+      "note": "Yalancı Şahitliğin Yasaklanması",
+      "origin": "curated",
+      "themeId": "yalan-sahitlik"
+    }
+  ],
+  "31:18": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 8:14",
+      "note": "Tevazu ve Kibirden Kaçınma",
+      "origin": "curated",
+      "themeId": "tevazu-kibir"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 138:6",
+      "note": "Tevazu ve Kibirden Kaçınma",
+      "origin": "curated",
+      "themeId": "tevazu-kibir"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 23:12",
+      "note": "Tevazu ve Kibirden Kaçınma",
+      "origin": "curated",
+      "themeId": "tevazu-kibir"
+    }
+  ],
+  "35:28": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 10:12",
+      "note": "Tanrı Korkusu ve Hikmet",
+      "origin": "curated",
+      "themeId": "tanri-korkusu-hikmet"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 111:10",
+      "note": "Tanrı Korkusu ve Hikmet",
+      "origin": "curated",
+      "themeId": "tanri-korkusu-hikmet"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 10:28",
+      "note": "Tanrı Korkusu ve Hikmet",
+      "origin": "curated",
+      "themeId": "tanri-korkusu-hikmet"
+    }
+  ],
+  "37:102": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "37:103": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "37:104": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "37:105": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "37:106": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "37:107": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 22:9-12",
+      "note": "İbrahim'in Sınanması",
+      "origin": "curated",
+      "themeId": "ibrahim-kurban"
+    }
+  ],
+  "39:53": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 30:2-3",
+      "note": "Tövbe ve Bağışlanma",
+      "origin": "curated",
+      "themeId": "tovbe-bagislanma"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 51:1-3",
+      "note": "Tövbe ve Bağışlanma",
+      "origin": "curated",
+      "themeId": "tovbe-bagislanma"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 15:7",
+      "note": "Tövbe ve Bağışlanma",
+      "origin": "curated",
+      "themeId": "tovbe-bagislanma"
+    }
+  ],
+  "41:34": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 23:4-5",
+      "note": "Kötülüğe İyilikle Karşılık",
+      "origin": "curated",
+      "themeId": "iyilikle-karsilik"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 5:44",
+      "note": "Kötülüğe İyilikle Karşılık",
+      "origin": "curated",
+      "themeId": "iyilikle-karsilik"
+    }
+  ],
+  "42:40": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 50:19-21",
+      "note": "Affetmek ve Öfkeyi Yenmek",
+      "origin": "curated",
+      "themeId": "affetme-ofke"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 6:14-15",
+      "note": "Affetmek ve Öfkeyi Yenmek",
+      "origin": "curated",
+      "themeId": "affetme-ofke"
+    }
+  ],
+  "49:12": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:16",
+      "note": "Gıybet ve İftiradan Kaçınma",
+      "origin": "curated",
+      "themeId": "giybet-iftira"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 34:13",
+      "note": "Gıybet ve İftiradan Kaçınma",
+      "origin": "curated",
+      "themeId": "giybet-iftira"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 12:36",
+      "note": "Gıybet ve İftiradan Kaçınma",
+      "origin": "curated",
+      "themeId": "giybet-iftira"
+    }
+  ],
+  "51:24": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 18:1-8",
+      "note": "İbrahim'in Misafirleri ve Müjde",
+      "origin": "curated",
+      "themeId": "ibrahim-misafirleri"
+    }
+  ],
+  "51:25": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 18:1-8",
+      "note": "İbrahim'in Misafirleri ve Müjde",
+      "origin": "curated",
+      "themeId": "ibrahim-misafirleri"
+    }
+  ],
+  "51:26": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 18:1-8",
+      "note": "İbrahim'in Misafirleri ve Müjde",
+      "origin": "curated",
+      "themeId": "ibrahim-misafirleri"
+    }
+  ],
+  "51:27": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 18:1-8",
+      "note": "İbrahim'in Misafirleri ve Müjde",
+      "origin": "curated",
+      "themeId": "ibrahim-misafirleri"
+    }
+  ],
+  "51:28": [
+    {
+      "book": "tevrat",
+      "reference": "Yaratılış 18:1-8",
+      "note": "İbrahim'in Misafirleri ve Müjde",
+      "origin": "curated",
+      "themeId": "ibrahim-misafirleri"
+    }
+  ],
+  "62:9": [
+    {
+      "book": "tevrat",
+      "reference": "Çıkış 20:8-10",
+      "note": "Dinlenme/İbadet Günü",
+      "origin": "curated",
+      "themeId": "dinlenme-gunu"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 2:27",
+      "note": "Dinlenme/İbadet Günü",
+      "origin": "curated",
+      "themeId": "dinlenme-gunu"
+    }
+  ],
+  "65:3": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 31:6",
+      "note": "Tanrı'ya Güven ve Tevekkül",
+      "origin": "curated",
+      "themeId": "tevekkul-guven"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 37:5",
+      "note": "Tanrı'ya Güven ve Tevekkül",
+      "origin": "curated",
+      "themeId": "tevekkul-guven"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 6:25-26",
+      "note": "Tanrı'ya Güven ve Tevekkül",
+      "origin": "curated",
+      "themeId": "tevekkul-guven"
+    }
+  ],
+  "90:13": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 10:33-34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    }
+  ],
+  "90:14": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 10:33-34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    }
+  ],
+  "90:15": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 10:33-34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    }
+  ],
+  "90:16": [
+    {
+      "book": "tevrat",
+      "reference": "Levililer 19:34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    },
+    {
+      "book": "incil",
+      "reference": "Luka 10:33-34",
+      "note": "Yabancıya ve Garibe İyilik",
+      "origin": "curated",
+      "themeId": "garibe-iyilik"
+    }
+  ],
+  "93:9": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 24:19-21",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 82:3",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 25:35-36",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    }
+  ],
+  "93:10": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 24:19-21",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 82:3",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 25:35-36",
+      "note": "Yoksula ve Yetime Yardım",
+      "origin": "curated",
+      "themeId": "yoksula-yetime-yardim"
+    }
+  ],
+  "99:7": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 62:12",
+      "note": "Hesap Günü ve Amellerin Karşılığı",
+      "origin": "curated",
+      "themeId": "hesap-amellerin-tartilmasi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 16:27",
+      "note": "Hesap Günü ve Amellerin Karşılığı",
+      "origin": "curated",
+      "themeId": "hesap-amellerin-tartilmasi"
+    }
+  ],
+  "99:8": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 62:12",
+      "note": "Hesap Günü ve Amellerin Karşılığı",
+      "origin": "curated",
+      "themeId": "hesap-amellerin-tartilmasi"
+    },
+    {
+      "book": "incil",
+      "reference": "Matta 16:27",
+      "note": "Hesap Günü ve Amellerin Karşılığı",
+      "origin": "curated",
+      "themeId": "hesap-amellerin-tartilmasi"
+    }
+  ],
+  "103:3": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 1:1-3",
+      "note": "İman edip doğru iş yapanların kurtuluşu",
+      "origin": "ai"
+    }
+  ],
+  "112:1": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 6:4",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 86:10",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 12:29",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    }
+  ],
+  "112:2": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 6:4",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 86:10",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 12:29",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    }
+  ],
+  "112:3": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 6:4",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 86:10",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 12:29",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    }
+  ],
+  "112:4": [
+    {
+      "book": "tevrat",
+      "reference": "Yasa'nın Tekrarı 6:4",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "zebur",
+      "reference": "Mezmur 86:10",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    },
+    {
+      "book": "incil",
+      "reference": "Markos 12:29",
+      "note": "Tek Tanrı İnancı",
+      "origin": "curated",
+      "themeId": "tek-tanri-inanci"
+    }
+  ],
+  "113:1": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 91:1-2",
+      "note": "Tanrı'ya sığınma ve korunma",
+      "origin": "ai"
+    }
+  ],
+  "113:3": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 91:5",
+      "note": "Gecenin ve karanlığın dehşetinden korunma",
+      "origin": "ai"
+    }
+  ],
+  "113:5": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 37:1",
+      "note": "Kötülük edenlere ve hasede karşı tutum",
+      "origin": "ai"
+    }
+  ],
+  "114:1": [
+    {
+      "book": "zebur",
+      "reference": "Mezmur 91:2",
+      "note": "Tanrı'yı sığınak edinmek",
+      "origin": "ai"
+    }
+  ],
+  "114:4": [
+    {
+      "book": "incil",
+      "reference": "Matta 6:13",
+      "note": "Kötü olandan ve vesveseden korunma duası",
+      "origin": "ai"
+    }
+  ]
+}
