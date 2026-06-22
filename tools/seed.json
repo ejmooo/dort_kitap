@@ -197,5 +197,249 @@
 
   { "id": "haset-tamah", "title": "Haset ve Aç Gözlülükten Kaçınma", "category": "Ahlak/Toplum", "similarity": "near_identical",
     "summary": "Başkasının sahip olduklarına göz dikme ve doymak bilmez hırs geleneklerde yerilir.",
-    "refs": { "kuran": "4:32", "tevrat": "Exodus 20:17", "incil": "Luke 12:15" } }
+    "refs": { "kuran": "4:32", "tevrat": "Exodus 20:17", "incil": "Luke 12:15" } },
+
+  { "id": "lut-kavmi", "title": "Lut Kavminin Helakı", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Sapkınlıkta ısrar eden kavmin gökten gelen azapla yok edilmesi anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "7:80-84", "tevrat": "Genesis 19:24-25" } },
+
+  { "id": "man-ve-bildircin", "title": "Man ve Bıldırcın", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Çölde İsrailoğullarına gökten indirilen yiyecek (man) anlatısı geleneklerde ortaktır.",
+    "refs": { "kuran": "2:57", "tevrat": "Exodus 16:14-15" } },
+
+  { "id": "altin-buzagi", "title": "Altın Buzağı", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Musa'nın yokluğunda kavmin altından bir buzağı yapıp ona tapması anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "7:148", "tevrat": "Exodus 32:3-4" } },
+
+  { "id": "musa-asasi", "title": "Musa'nın Asası", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Musa'nın (ve Harun'un) asasının yılana dönüşmesi mucizesi geleneklerde ortak bir anlatıdır.",
+    "refs": { "kuran": "7:107", "tevrat": "Exodus 7:10-12" } },
+
+  { "id": "denizin-yarilmasi", "title": "Denizin Yarılması", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Musa'nın asasıyla denizin yarılıp İsrailoğullarına yol açılması anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "26:63", "tevrat": "Exodus 14:21-22" } },
+
+  { "id": "yunus-balik", "title": "Yunus ve Balık", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Yunus'un balık tarafından yutulup belli bir süre sonra kurtulması iki gelenekte de anılır.",
+    "refs": { "kuran": "37:142-144", "incil": "Matthew 12:40" } },
+
+  { "id": "firavun-kibri", "title": "Firavun'un Kibri", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Firavun'un Tanrı'yı tanımayıp büyüklenmesi geleneklerde benzer biçimde aktarılır.",
+    "refs": { "kuran": "79:23-24", "tevrat": "Exodus 5:2" } },
+
+  { "id": "tanri-her-seyi-bilir", "title": "Tanrı Her Şeyi Bilir", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın gizli açık her şeyi, kalplerden geçeni dahi bilmesi geleneklerde ortak bir niteliktir.",
+    "refs": { "kuran": "6:59", "zebur": "Psalms 139:1-4", "incil": "Matthew 10:30" } },
+
+  { "id": "tanri-her-yerde", "title": "Tanrı'dan Kaçılamaz", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın her yerde hazır olması ve O'ndan kaçıp saklanılamaması geleneklerde paylaşılır.",
+    "refs": { "kuran": "2:115", "zebur": "Psalms 139:7-10" } },
+
+  { "id": "gokler-tanriyi-anlatir", "title": "Gökler Tanrı'yı Anlatır", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Göklerin ve yerin düzeninin Tanrı'nın varlığına ve yüceliğine işaret etmesi geleneklerde ortaktır.",
+    "refs": { "kuran": "3:190", "zebur": "Psalms 19:1" } },
+
+  { "id": "tanri-isigi", "title": "Tanrı'nın Nuru/Işığı", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın nur/ışık olarak nitelenip yol gösterici sayılması geleneklerde benzer biçimde yer alır.",
+    "refs": { "kuran": "24:35", "incil": "John 8:12" } },
+
+  { "id": "olu-topragin-dirilmesi", "title": "Ölü Toprağın Dirilmesi", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Kuruyan toprağın yeniden canlanmasının dirilişe örnek gösterilmesi geleneklerde ortak bir motiftir.",
+    "refs": { "kuran": "41:39", "incil": "John 12:24" } },
+
+  { "id": "kiyamet-alametleri", "title": "Kıyamet Alametleri", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Son zamanda güneşin kararması, göğün sarsılması gibi kozmik alametler geleneklerde benzerdir.",
+    "refs": { "kuran": "81:1-3", "incil": "Matthew 24:29" } },
+
+  { "id": "rizki-tanri-verir", "title": "Rızkı Tanrı Verir", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Bütün canlıların rızkını Tanrı'nın üstlenmesi ve kaygıya gerek olmaması geleneklerde öğütlenir.",
+    "refs": { "kuran": "11:6", "zebur": "Psalms 145:15-16", "incil": "Matthew 6:26" } },
+
+  { "id": "gosteristen-kacinma", "title": "İbadette Gösterişten Kaçınma", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "İyiliği insanlara gösteriş için değil içtenlikle yapma çağrısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "2:264", "incil": "Matthew 6:1" } },
+
+  { "id": "tum-kalple-sevmek", "title": "Tanrı'yı Bütün Kalple Sevmek", "category": "İbadet/Maneviyat", "similarity": "near_identical",
+    "summary": "Tanrı'yı tüm kalp ve benlikle sevmenin en büyük buyruk sayılması geleneklerde ortaktır.",
+    "refs": { "kuran": "2:165", "tevrat": "Deuteronomy 6:5", "incil": "Mark 12:30" } },
+
+  { "id": "tum-varlik-tesbih", "title": "Bütün Varlık Tanrı'yı Yüceltir", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Göklerdeki ve yerdeki her şeyin Tanrı'yı andığı/yücelttiği teması geleneklerde paylaşılır.",
+    "refs": { "kuran": "17:44", "zebur": "Psalms 148:1-3" } },
+
+  { "id": "mal-biriktirme", "title": "Mal Yığmaya Karşı Uyarı", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Servet biriktirip ona güvenmenin geçiciliği ve beyhudeliği geleneklerde benzer biçimde eleştirilir.",
+    "refs": { "kuran": "104:1-3", "zebur": "Psalms 49:16-17", "incil": "Matthew 6:19-21" } },
+
+  { "id": "ikiyuzluluk", "title": "İkiyüzlülük (Münafıklık)", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Dışı süslü içi bozuk, sözüyle özü uyuşmayan ikiyüzlü tutum geleneklerde yerilir.",
+    "refs": { "kuran": "2:8-9", "incil": "Matthew 23:27-28" } },
+
+  { "id": "kalp-katiligi", "title": "Kalp Katılığına Karşı Uyarı", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın çağrısına karşı kalbin katılaşması geleneklerde ortak bir uyarı teması olarak geçer.",
+    "refs": { "kuran": "57:16", "tevrat": "Deuteronomy 10:16", "zebur": "Psalms 95:8" } },
+
+  { "id": "borca-kolaylik", "title": "Borçluya Kolaylık", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Darda olan borçluya süre/kolaylık tanımak, borçları hafifletmek geleneklerde öğütlenir.",
+    "refs": { "kuran": "2:280", "tevrat": "Deuteronomy 15:1-2" } },
+
+  { "id": "dogru-sozluluk", "title": "Doğru Sözlülük", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Yalandan kaçınıp dürüst konuşmak ve doğrularla beraber olmak geleneklerde değerli görülür.",
+    "refs": { "kuran": "9:119", "tevrat": "Leviticus 19:11", "incil": "Matthew 5:37" } },
+
+  { "id": "barisma-uzlasma", "title": "Barıştırma ve Uzlaşma", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Anlaşmazlıkları gidermek, insanların arasını bulup barıştırmak geleneklerde övülen bir tutumdur.",
+    "refs": { "kuran": "49:10", "incil": "Matthew 5:9" } },
+
+  { "id": "zekat-ondalik", "title": "Zekât ve Ondalık", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Maldan belirli bir payı düzenli olarak ihtiyaç sahiplerine/dine ayırma yükümlülüğü geleneklerde yer alır.",
+    "refs": { "kuran": "9:60", "tevrat": "Deuteronomy 14:22" } },
+
+  { "id": "insanin-faniligi", "title": "İnsanın Faniliği", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "İnsanın ve dünyevi her şeyin gelip geçici, yalnız Tanrı'nın kalıcı olması geleneklerde ortaktır.",
+    "refs": { "kuran": "55:26-27", "zebur": "Psalms 103:15-16" } },
+
+  { "id": "idris-enoch", "title": "İdris'in Yüceltilmesi", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Tanrı'yla yürüyen salih bir kulun (İdris/Hanok) yüce bir mertebeye alınması iki gelenekte de anılır.",
+    "refs": { "kuran": "19:56-57", "tevrat": "Genesis 5:24" } },
+
+  { "id": "musa-nehre-birakilmasi", "title": "Musa'nın Nehre Bırakılması", "category": "Kıssalar", "similarity": "near_identical",
+    "summary": "Bebek Musa'nın bir sandıkla suya bırakılıp kurtarılması anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "28:7", "tevrat": "Exodus 2:3" } },
+
+  { "id": "misir-belalari", "title": "Mısır'a Gelen Belalar", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Firavun halkına gönderilen çekirge, kan gibi musibetler iki gelenekte de benzer biçimde aktarılır.",
+    "refs": { "kuran": "7:133", "tevrat": "Exodus 10:14" } },
+
+  { "id": "karun-servet", "title": "Karun'un Serveti ve Sonu", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Servetiyle böbürlenen kişinin yerin dibine geçirilmesi anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "28:81", "tevrat": "Numbers 16:31-33" } },
+
+  { "id": "yahya-mujdesi", "title": "Yahya'nın (Vaftizci Yahya) Müjdesi", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Zekeriya'ya yaşlılığında bir oğul (Yahya) müjdesinin verilmesi iki gelenekte de anlatılır.",
+    "refs": { "kuran": "19:7", "incil": "Luke 1:13" } },
+
+  { "id": "isa-yukseltilmesi", "title": "İsa'nın Yükseltilmesi", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "İsa'nın Tanrı katına yükseltilmesi iki gelenekte de yer alan bir anlatıdır.",
+    "refs": { "kuran": "4:158", "incil": "Luke 24:51" } },
+
+  { "id": "yakup-yasi", "title": "Yakup'un Evlat Acısı", "category": "Kıssalar", "similarity": "thematic",
+    "summary": "Yakup'un kaybettiği oğlu için derin yas tutması anlatısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "12:84", "tevrat": "Genesis 37:34-35" } },
+
+  { "id": "kurban-adak", "title": "Kurban ve Adak", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Tanrı'ya yakınlaşmak için kurban/adak sunma ibadeti geleneklerde farklı biçimlerde yer alır.",
+    "refs": { "kuran": "22:34", "tevrat": "Leviticus 1:2" } },
+
+  { "id": "insan-halife", "title": "İnsanın Yeryüzü Emaneti", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "İnsanın yeryüzünde sorumlu bir halife/yönetici kılınması teması geleneklerde paylaşılır.",
+    "refs": { "kuran": "2:30", "tevrat": "Genesis 1:28" } },
+
+  { "id": "tanri-ezeli-ebedi", "title": "Tanrı Ezeli ve Ebedidir", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın başlangıcı ve sonu olmayan, hep var olan oluşu geleneklerde ortak bir niteliktir.",
+    "refs": { "kuran": "57:3", "zebur": "Psalms 90:2" } },
+
+  { "id": "tanri-yorulmaz", "title": "Tanrı Yorulmaz, Uyumaz", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'yı ne bir yorgunluğun ne bir uykunun tutması geleneklerde benzer biçimde dile getirilir.",
+    "refs": { "kuran": "50:38", "zebur": "Psalms 121:3-4" } },
+
+  { "id": "tanri-benzersiz", "title": "Tanrı'nın Eşi Benzeri Yoktur", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'ya hiçbir şeyin denk ve benzer olmaması geleneklerde ortak bir vurgudur.",
+    "refs": { "kuran": "42:11", "zebur": "Psalms 86:8" } },
+
+  { "id": "tanri-gorulemez", "title": "Tanrı'nın Görülemezliği", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "İnsan gözünün Tanrı'yı kuşatamaması/doğrudan görememesi geleneklerde benzer biçimde geçer.",
+    "refs": { "kuran": "6:103", "tevrat": "Exodus 33:20" } },
+
+  { "id": "melekler", "title": "Melekler", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın buyruğunu yerine getiren elçi varlıkların (melekler) varlığı geleneklerde ortaktır.",
+    "refs": { "kuran": "35:1", "zebur": "Psalms 103:20" } },
+
+  { "id": "seytan-dusman", "title": "Şeytan: Aldatıcı Düşman", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Şeytanın insana düşman, yalancı ve aldatıcı oluşu geleneklerde benzer biçimde anlatılır.",
+    "refs": { "kuran": "35:6", "incil": "John 8:44" } },
+
+  { "id": "tanri-imtihani", "title": "Tanrı'nın İmtihanı", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın insanı zorluk ve sıkıntılarla denemesi/sınaması geleneklerde ortak bir temadır.",
+    "refs": { "kuran": "2:155", "tevrat": "Deuteronomy 8:2" } },
+
+  { "id": "tanri-ahde-vefa", "title": "Tanrı Sözünden Dönmez", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın vaadine sadık kalması, ahdini bozmaması geleneklerde paylaşılan bir niteliktir.",
+    "refs": { "kuran": "3:9", "tevrat": "Deuteronomy 7:9", "zebur": "Psalms 89:34" } },
+
+  { "id": "tanri-niyete-bakar", "title": "Tanrı Kalbe ve Niyete Bakar", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Tanrı'ya ulaşanın dış görünüş değil içtenlik ve takva olması geleneklerde benzer biçimde geçer.",
+    "refs": { "kuran": "22:37", "zebur": "Psalms 51:6" } },
+
+  { "id": "dunya-geciciligi", "title": "Dünyanın Geçiciliği", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Dünya hayatının oyun-eğlence ve geçici bir meta oluşu geleneklerde ortak bir uyarıdır.",
+    "refs": { "kuran": "57:20", "zebur": "Psalms 39:5-6", "incil": "Luke 12:20" } },
+
+  { "id": "olum-herkese", "title": "Her Nefis Ölümü Tadar", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Ölümün her canlı için kaçınılmaz oluşu geleneklerde benzer biçimde dile getirilir.",
+    "refs": { "kuran": "3:185", "zebur": "Psalms 89:48" } },
+
+  { "id": "tanri-yolunda-olenler", "title": "Tanrı Yolunda Ölenler Diridir", "category": "Ahiret", "similarity": "thematic",
+    "summary": "Tanrı uğrunda canını verenlerin ölü sayılmayıp diri kabul edilmesi geleneklerde benzer biçimde yer alır.",
+    "refs": { "kuran": "3:169", "incil": "John 11:25" } },
+
+  { "id": "dogrulara-korku-yok", "title": "Doğrular İçin Korku Yoktur", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'ya yönelen doğrular için korku ve üzüntü olmaması geleneklerde paylaşılan bir teselli temasıdır.",
+    "refs": { "kuran": "2:38", "zebur": "Psalms 23:4" } },
+
+  { "id": "sihir-yasagi", "title": "Sihir ve Büyünün Yasaklanması", "category": "İnanç/Hukuk", "similarity": "thematic",
+    "summary": "Büyü ve sihirle uğraşmanın yasaklanması geleneklerde ortak bir buyruktur.",
+    "refs": { "kuran": "2:102", "tevrat": "Deuteronomy 18:10-11" } },
+
+  { "id": "temizlik-abdest", "title": "İbadet Öncesi Temizlik", "category": "İbadet/Maneviyat", "similarity": "thematic",
+    "summary": "Tanrı'ya yönelmeden önce el-yüz yıkama, arınma uygulaması geleneklerde benzer biçimde yer alır.",
+    "refs": { "kuran": "5:6", "tevrat": "Exodus 30:19-20" } },
+
+  { "id": "koleyi-ozgur", "title": "Köleyi Özgür Bırakmak", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Köle azat etmenin ve esirlere iyilik göstermenin teşvik edilmesi geleneklerde paylaşılır.",
+    "refs": { "kuran": "90:13", "tevrat": "Deuteronomy 15:12-15" } },
+
+  { "id": "emanet", "title": "Emanete Sadakat", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Kendisine bırakılan emaneti gözetmek, hak sahibine geri vermek geleneklerde değerli görülür.",
+    "refs": { "kuran": "4:58", "tevrat": "Leviticus 19:13" } },
+
+  { "id": "iyiligi-emir", "title": "İyiliği Emir, Kötülükten Men", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "İyiyi teşvik edip kötülüğe karşı uyarmanın bir sorumluluk sayılması geleneklerde ortaktır.",
+    "refs": { "kuran": "3:104", "tevrat": "Leviticus 19:17" } },
+
+  { "id": "birbirini-sevmek", "title": "Birbirini Sevmek ve Şefkat", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Birbirine sevgi, merhamet ve şefkat gösterme çağrısı geleneklerde paylaşılır.",
+    "refs": { "kuran": "90:17", "incil": "John 13:34" } },
+
+  { "id": "selam-esenlik", "title": "Selam ve Esenlik Dileme", "category": "Ahlak/Toplum", "similarity": "thematic",
+    "summary": "Karşılaşıldığında esenlik/barış dilemek, selam vermek geleneklerde benzer biçimde yer alır.",
+    "refs": { "kuran": "24:61", "tevrat": "Numbers 6:24-26" } },
+
+  { "id": "tanri-siginak", "title": "Tanrı: Sığınak ve Koruyucu", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın inananların dostu, koruyucusu ve sığınağı oluşu geleneklerde ortak bir temadır.",
+    "refs": { "kuran": "2:257", "zebur": "Psalms 46:1" } },
+
+  { "id": "tanri-sifa", "title": "Şifayı Tanrı Verir", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Hastalığı iyileştirenin, şifayı verenin Tanrı olması geleneklerde benzer biçimde dile getirilir.",
+    "refs": { "kuran": "26:80", "zebur": "Psalms 103:3", "incil": "Matthew 4:23" } },
+
+  { "id": "rahimde-yaratilis", "title": "Ana Rahminde Yaratılış", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "İnsanın ana rahminde aşama aşama Tanrı tarafından şekillendirilmesi geleneklerde paylaşılır.",
+    "refs": { "kuran": "22:5", "zebur": "Psalms 139:13" } },
+
+  { "id": "gunes-ay-duzeni", "title": "Güneş ve Ayın Düzeni", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Güneş ve ayın belli bir ölçü ve düzene bağlanması, Tanrı'nın kudretine işaret sayılır.",
+    "refs": { "kuran": "14:33", "zebur": "Psalms 104:19" } },
+
+  { "id": "yagmur-bereket", "title": "Yağmur ve Bereket", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın yağmurla toprağı diriltip rızık çıkarması geleneklerde ortak bir şükür temasıdır.",
+    "refs": { "kuran": "2:22", "zebur": "Psalms 104:13-14" } },
+
+  { "id": "iyi-coban", "title": "İyi Çoban Benzetmesi", "category": "İnanç/Akide", "similarity": "thematic",
+    "summary": "Tanrı'nın (ve elçisinin) sürüsünü güden iyi bir çobana benzetilmesi Mezmurlar ve İncil'de yer alır.",
+    "refs": { "zebur": "Psalms 23:1", "incil": "John 10:11" } },
+
+  { "id": "iscinin-ucreti", "title": "İşçinin Ücreti", "category": "Ahlak/Hukuk", "similarity": "thematic",
+    "summary": "Çalışanın hakkını zamanında ve eksiksiz vermenin gerekliliği geleneklerde vurgulanır.",
+    "refs": { "tevrat": "Deuteronomy 24:14-15", "incil": "Luke 10:7" } }
 ]

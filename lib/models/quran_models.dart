@@ -2,11 +2,13 @@
 
 class QuranAyah {
   final int number; // sûre içindeki ayet numarası
+  final int global; // Kuran genelinde 1..6236 (ses CDN'i için)
   final String arabic;
   final String turkish;
 
   const QuranAyah({
     required this.number,
+    required this.global,
     required this.arabic,
     required this.turkish,
   });
@@ -14,6 +16,7 @@ class QuranAyah {
   factory QuranAyah.fromJson(Map<String, dynamic> json) {
     return QuranAyah(
       number: json['n'] as int? ?? 0,
+      global: json['g'] as int? ?? 0,
       arabic: json['ar'] as String? ?? '',
       turkish: json['tr'] as String? ?? '',
     );

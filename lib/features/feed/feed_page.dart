@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../providers/filter_provider.dart';
 import '../../providers/themes_provider.dart';
 import '../../widgets/reading_settings_sheet.dart';
+import '../index/theme_index_page.dart';
 import 'theme_page.dart';
 
 class FeedPage extends ConsumerStatefulWidget {
@@ -93,6 +94,13 @@ class _FeedPageState extends ConsumerState<FeedPage> {
                   icon: const Icon(Icons.search),
                   tooltip: 'Konu ara',
                   onPressed: () => setState(() => _searching = true),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.format_list_bulleted),
+                  tooltip: 'Tema dizini',
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const ThemeIndexPage()),
+                  ),
                 ),
                 IconButton(
                   icon: const Icon(Icons.today_outlined),

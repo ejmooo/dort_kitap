@@ -9,6 +9,7 @@ import '../../core/app_theme.dart';
 import '../../models/parallel.dart';
 import '../../models/quran_models.dart';
 import '../../models/saved_verse.dart';
+import '../../providers/audio_provider.dart';
 import '../../providers/quran_provider.dart';
 import '../../providers/reading_progress_provider.dart';
 import '../../widgets/parallel_list.dart';
@@ -70,7 +71,7 @@ class _SurahPageState extends ConsumerState<SurahPage> {
   }
 }
 
-class _AyahTile extends StatelessWidget {
+class _AyahTile extends ConsumerWidget {
   final int surahNumber;
   final String surahName;
   final QuranAyah ayah;
@@ -84,8 +85,12 @@ class _AyahTile extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
+    final key = '$surahNumber:${ayah.number}';
+    final audio = ref.watch(audioControllerProvider);
+    final isPlaying = audio.playingKey == key;
+    final isLoading = isPlaying && audio.loading;
     return Padding(
       padding: const EdgeInsets.only(bottom: 14),
       child: Container(
@@ -126,6 +131,25 @@ class _AyahTile extends StatelessWidget {
                         color:
                             theme.colorScheme.primary.withValues(alpha: 0.7)),
                   ),
+                IconButton(
+                  visualDensity: VisualDensity.compact,
+                  tooltip: isPlaying ? 'Durdur' : 'Dinle',
+                  icon: isLoading
+                      ? const SizedBox(
+                          width: 18,
+                          height: 18,
+                          child: CircularProgressIndicator(strokeWidth: 2),
+                        )
+                      : Icon(
+                          isPlaying
+                              ? Icons.stop_circle_outlined
+                              : Icons.play_circle_outline,
+                          color: isPlaying ? theme.colorScheme.primary : null,
+                        ),
+                  onPressed: () => ref
+                      .read(audioControllerProvider.notifier)
+                      .toggle(key, ayah.global),
+                ),
                 VerseMenu(
                   verse: SavedVerse(
                     id: 'quran:$surahNumber:${ayah.number}',

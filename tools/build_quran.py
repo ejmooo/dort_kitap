@@ -72,6 +72,7 @@ def build():
                 text_ar = strip_basmala(text_ar)
             ayahs.append({
                 "n": n,
+                "g": a_ar["number"],  # Kuran genelinde 1..6236 (ses CDN'i için)
                 "ar": text_ar,
                 "tr": " ".join(a_tr["text"].split()),
             })
