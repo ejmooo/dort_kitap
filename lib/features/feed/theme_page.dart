@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/app_theme.dart';
 import '../../models/theme_cluster.dart';
 import '../../providers/favorites_provider.dart';
 import '../../widgets/page_dots.dart';
@@ -77,28 +78,29 @@ class _CoverCard extends ConsumerWidget {
     final isFavorite = ref.watch(favoritesProvider).contains(cluster.id);
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(28, 24, 28, 8),
+      padding: const EdgeInsets.fromLTRB(30, 24, 30, 8),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.primary.withValues(alpha: 0.12),
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: Text(
-                  cluster.category,
-                  style: theme.textTheme.labelLarge?.copyWith(
-                    color: theme.colorScheme.primary,
-                    fontWeight: FontWeight.w600,
-                  ),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(cluster.category.toUpperCase(),
+                        style: AppTheme.kicker(context,
+                            color: theme.colorScheme.primary)),
+                    const SizedBox(height: 8),
+                    Container(
+                        width: 38,
+                        height: 2,
+                        color: theme.colorScheme.primary),
+                  ],
                 ),
               ),
-              const Spacer(),
               IconButton(
                 icon: Icon(
                   isFavorite ? Icons.bookmark : Icons.bookmark_outline,
@@ -111,24 +113,23 @@ class _CoverCard extends ConsumerWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 18),
           Text(
             cluster.title,
-            style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.w800,
-              height: 1.2,
-            ),
+            style: theme.textTheme.displaySmall?.copyWith(height: 1.15),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 18),
           SimilarityChip(similarity: cluster.similarity),
           const SizedBox(height: 20),
           Text(
             cluster.summary,
             style: theme.textTheme.bodyLarge?.copyWith(
-              height: 1.6,
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+              height: 1.65,
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
             ),
           ),
+          const SizedBox(height: 24),
+          _TraditionDots(cluster: cluster),
           const SizedBox(height: 24),
           OutlinedButton.icon(
             onPressed: () => Navigator.of(context).push(
@@ -160,6 +161,55 @@ class _CoverCard extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Dört geleneği temsil eden imza motif: her kitap aksan rengiyle bir nokta;
+/// o temada karşılığı varsa dolu, yoksa içi boş.
+class _TraditionDots extends StatelessWidget {
+  final ThemeCluster cluster;
+
+  const _TraditionDots({required this.cluster});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Wrap(
+      spacing: 18,
+      runSpacing: 10,
+      children: [
+        for (final book in kBookOrder)
+          _dot(theme, book, cluster.entryFor(book) != null),
+      ],
+    );
+  }
+
+  Widget _dot(ThemeData theme, String book, bool present) {
+    final color = BookPalette.accent(book);
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Container(
+          width: 11,
+          height: 11,
+          decoration: BoxDecoration(
+            color: present ? color : Colors.transparent,
+            border: Border.all(color: color, width: 1.6),
+            shape: BoxShape.circle,
+          ),
+        ),
+        const SizedBox(width: 7),
+        Text(
+          BookPalette.label(book),
+          style: theme.textTheme.labelMedium?.copyWith(
+            color: present
+                ? theme.colorScheme.onSurface
+                : theme.colorScheme.onSurface.withValues(alpha: 0.4),
+            fontWeight: present ? FontWeight.w700 : FontWeight.w500,
+          ),
+        ),
+      ],
     );
   }
 }

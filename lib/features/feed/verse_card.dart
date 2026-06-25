@@ -29,17 +29,34 @@ class VerseCard extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.all(22),
-        decoration: BoxDecoration(
-          color: theme.colorScheme.surface,
-          borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: accent.withValues(alpha: 0.35), width: 1.5),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(22),
+        child: Container(
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: theme.colorScheme.surfaceContainerLow,
+            borderRadius: BorderRadius.circular(22),
+            border: Border.all(color: theme.colorScheme.outlineVariant),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(width: 6, color: accent), // kitap sırtı (cilt motifi)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(22),
+                  child: current == null
+                      ? _EmptyState(book: book)
+                      : _Content(
+                          entry: current,
+                          accent: accent,
+                          similarity: similarity,
+                        ),
+                ),
+              ),
+            ],
+          ),
         ),
-        child: current == null
-            ? _EmptyState(book: book)
-            : _Content(entry: current, accent: accent, similarity: similarity),
       ),
     );
   }

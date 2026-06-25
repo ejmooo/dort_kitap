@@ -1,5 +1,6 @@
 // SimilarityChip: bir temanın benzerlik düzeyini (tematik / neredeyse aynı /
-// birebir) tarafsız bir dille gösteren etiket.
+// birebir) tarafsız bir dille gösteren etiket. Editöryel: küçük nokta + harf
+// aralıklı büyük harf etiket, ince çerçeve.
 
 import 'package:flutter/material.dart';
 
@@ -10,24 +11,30 @@ class SimilarityChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (label, icon, color) = _meta();
+    final (label, color) = _meta();
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
       decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(999),
+        color: color.withValues(alpha: 0.10),
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: color.withValues(alpha: 0.45)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 14, color: color),
-          const SizedBox(width: 6),
+          Container(
+            width: 7,
+            height: 7,
+            decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          ),
+          const SizedBox(width: 8),
           Text(
-            label,
+            label.toUpperCase(),
             style: TextStyle(
               color: color,
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              fontSize: 10.5,
+              letterSpacing: 1.0,
             ),
           ),
         ],
@@ -35,15 +42,15 @@ class SimilarityChip extends StatelessWidget {
     );
   }
 
-  (String, IconData, Color) _meta() {
+  (String, Color) _meta() {
     switch (similarity) {
       case 'identical':
-        return ('Birebir örtüşme', Icons.check_circle_outline, const Color(0xFF2E7D32));
+        return ('Birebir örtüşme', const Color(0xFF9A6A2E)); // pirinç
       case 'near_identical':
-        return ('Neredeyse aynı', Icons.compare_arrows, const Color(0xFF1565C0));
+        return ('Neredeyse aynı', const Color(0xFF2F7E73)); // teal
       case 'thematic':
       default:
-        return ('Tematik benzerlik', Icons.auto_awesome_outlined, const Color(0xFF8E6BAA));
+        return ('Tematik benzerlik', const Color(0xFF7E5A86)); // erik
     }
   }
 }

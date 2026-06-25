@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../core/app_theme.dart';
 import '../../widgets/reading_settings_sheet.dart';
 
 class AboutPage extends StatelessWidget {
@@ -88,6 +89,49 @@ class AboutPage extends StatelessWidget {
             child: Text('Eğitim ve karşılaştırmalı okuma amaçlıdır.',
                 style: theme.textTheme.bodySmall
                     ?.copyWith(color: theme.colorScheme.onSurfaceVariant)),
+          ),
+          const SizedBox(height: 36),
+          const _Signature(),
+        ],
+      ),
+    );
+  }
+}
+
+/// Uygulama imzası: Hakkında sayfasının en sonunda zarif bir künye.
+class _Signature extends StatelessWidget {
+  const _Signature();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Center(
+      child: Column(
+        children: [
+          Container(
+            width: 44,
+            height: 1.5,
+            color: theme.colorScheme.outlineVariant,
+          ),
+          const SizedBox(height: 18),
+          Text('CRAFTED BY', style: AppTheme.kicker(context)),
+          const SizedBox(height: 6),
+          Text(
+            'ejmo',
+            style: TextStyle(
+              fontFamily: kSerifFont,
+              fontSize: 26,
+              fontWeight: FontWeight.w600,
+              letterSpacing: 1.5,
+              color: theme.colorScheme.primary,
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Made by ejmo · © 2026',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant.withValues(alpha: 0.8),
+            ),
           ),
         ],
       ),

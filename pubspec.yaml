@@ -65,11 +65,14 @@ flutter:
   assets:
     - assets/data/
 
-  # Çevrimdışı yazı tipleri (Latin: Manrope, Arapça: Amiri).
+  # Çevrimdışı yazı tipleri (Latin gövde: Manrope, başlık serif: Lora, Arapça: Amiri).
   fonts:
     - family: Manrope
       fonts:
         - asset: assets/fonts/Manrope-Variable.ttf
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-Variable.ttf
     - family: Amiri
       fonts:
         - asset: assets/fonts/Amiri-Regular.ttf
