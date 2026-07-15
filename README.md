@@ -138,12 +138,7 @@ kaynaklardan teyit edilmelidir.
 
 ---
 
-## Yol haritası
 
-- [ ] Tüm 6236 ayet için AI paralellerinin tamamlanması (ücretli koşu)
-- [ ] Quiz / kendini sına modu (mevcut veriden soru üretimi)
-- [ ] Daha fazla küratörlü tema
-- [ ] Açık lisanslı/güncel ek Türkçe meal seçeneği
 
 ---
 
