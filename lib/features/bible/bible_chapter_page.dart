@@ -10,6 +10,7 @@ import '../../models/parallel.dart';
 import '../../models/saved_verse.dart';
 import '../../providers/bible_parallels_provider.dart';
 import '../../providers/reading_progress_provider.dart';
+import '../../providers/stats_provider.dart';
 import '../../widgets/parallel_list.dart';
 import '../../widgets/reading_settings_sheet.dart';
 import '../../widgets/verse_menu.dart';
@@ -46,6 +47,7 @@ class _BibleChapterPageState extends ConsumerState<BibleChapterPage> {
           _index,
           book.chapters[_index].number,
         );
+    ref.read(statsProvider.notifier).recordChapter(book.nr, _index);
   }
 
   void _goTo(int index) {
@@ -181,6 +183,7 @@ class _VerseTile extends StatelessWidget {
               savedAt: 0,
             ),
             copyText: '$reference\n\n${verse.text}',
+            bookKey: book.role.isNotEmpty ? book.role : 'incil',
           ),
         ],
       ),

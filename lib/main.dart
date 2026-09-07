@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/app_theme.dart';
 import 'features/shell/root_shell.dart';
+import 'providers/reminder_provider.dart';
 import 'providers/settings_provider.dart';
 
 void main() {
@@ -19,6 +20,9 @@ class DortKitapApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final settings = ref.watch(settingsProvider);
+    // Hatırlatıcılar yalnızca birkaç gün ileriye kurulur; sağlayıcıyı açılışta
+    // canlandırmak pencereyi yeniden doldurur.
+    ref.watch(reminderProvider);
     return MaterialApp(
       title: 'Dört Kitap',
       debugShowCheckedModeBanner: false,

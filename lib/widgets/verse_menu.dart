@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../features/share/verse_image_sheet.dart';
 import '../models/saved_verse.dart';
 import '../providers/verse_bookmarks_provider.dart';
 import 'share_helper.dart';
@@ -13,7 +14,23 @@ class VerseMenu extends ConsumerWidget {
   final SavedVerse verse;
   final String copyText;
 
-  const VerseMenu({super.key, required this.verse, required this.copyText});
+  /// BookPalette anahtarı (kuran | tevrat | zebur | incil). Verilmezse
+  /// scripture alanından tahmin edilir.
+  final String? bookKey;
+
+  /// Varsa Arapça asıl metin — görselde meal ile birlikte gösterilir.
+  final String? arabicText;
+
+  const VerseMenu({
+    super.key,
+    required this.verse,
+    required this.copyText,
+    this.bookKey,
+    this.arabicText,
+  });
+
+  String get _book =>
+      bookKey ?? (verse.scripture == 'quran' ? 'kuran' : 'incil');
 
   SavedVerse _stamped() => SavedVerse(
         id: verse.id,
@@ -33,6 +50,16 @@ class VerseMenu extends ConsumerWidget {
         if (context.mounted) _toast(context, 'Panoya kopyalandı');
       case 'share':
         if (context.mounted) await shareText(context, copyText);
+      case 'image':
+        if (context.mounted) {
+          await showVerseImageSheet(
+            context,
+            text: verse.preview,
+            reference: verse.reference,
+            book: _book,
+            arabic: arabicText,
+          );
+        }
       case 'save':
         await notifier.toggle(_stamped());
         if (context.mounted) {
@@ -113,6 +140,14 @@ class VerseMenu extends ConsumerWidget {
             dense: true,
             leading: Icon(Icons.ios_share),
             title: Text('Paylaş'),
+          ),
+        ),
+        const PopupMenuItem(
+          value: 'image',
+          child: ListTile(
+            dense: true,
+            leading: Icon(Icons.image_outlined),
+            title: Text('Görsel olarak paylaş'),
           ),
         ),
         PopupMenuItem(

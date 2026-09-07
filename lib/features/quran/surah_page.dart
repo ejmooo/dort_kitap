@@ -13,6 +13,7 @@ import '../../models/saved_verse.dart';
 import '../../providers/audio_provider.dart';
 import '../../providers/quran_provider.dart';
 import '../../providers/reading_progress_provider.dart';
+import '../../providers/stats_provider.dart';
 import '../../widgets/parallel_list.dart';
 import '../../widgets/reading_settings_sheet.dart';
 import '../../widgets/verse_menu.dart';
@@ -46,6 +47,7 @@ class _SurahPageState extends ConsumerState<SurahPage> {
       ref
           .read(readingProgressProvider.notifier)
           .setQuran(widget.surah.number, widget.surah.name);
+      ref.read(statsProvider.notifier).recordSurah(widget.surah.number);
     });
   }
 
@@ -289,6 +291,8 @@ class _AyahTile extends ConsumerWidget {
                   ),
                   copyText: '$surahName $surahNumber:${ayah.number}\n\n'
                       '${ayah.arabic}\n\n${ayah.turkish}',
+                  bookKey: 'kuran',
+                  arabicText: ayah.arabic,
                 ),
               ],
             ),

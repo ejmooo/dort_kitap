@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/daily_topic.dart';
 import '../../providers/filter_provider.dart';
 import '../../providers/themes_provider.dart';
 import '../../widgets/reading_settings_sheet.dart';
@@ -36,8 +37,7 @@ class _FeedPageState extends ConsumerState<FeedPage> {
   void _goToTodaysTopic() {
     final list = ref.read(filteredThemesProvider).value ?? const [];
     if (list.isEmpty) return;
-    final day = DateTime.now().difference(DateTime(2020, 1, 1)).inDays;
-    final index = day % list.length;
+    final index = dailyTopicIndex(DateTime.now(), list.length);
     _pageController.animateToPage(
       index,
       duration: const Duration(milliseconds: 450),

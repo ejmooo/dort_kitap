@@ -4,6 +4,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../core/notifications.dart';
+import '../providers/reminder_provider.dart';
 import '../providers/settings_provider.dart';
 
 Future<void> showReadingSettings(BuildContext context) {
@@ -96,9 +98,81 @@ class _ReadingSettingsSheet extends ConsumerWidget {
               selected: {settings.themeMode},
               onSelectionChanged: (s) => notifier.setThemeMode(s.first),
             ),
+
+            // Günlük hatırlatıcı — web'de yerel bildirim planlanamıyor.
+            if (DailyReminders.instance.supported) ...[
+              const SizedBox(height: 24),
+              Text('Günlük hatırlatıcı',
+                  style: theme.textTheme.labelLarge
+                      ?.copyWith(color: theme.colorScheme.primary)),
+              const SizedBox(height: 4),
+              const _ReminderControls(),
+            ],
           ],
         ),
       ),
+    );
+  }
+}
+
+class _ReminderControls extends ConsumerWidget {
+  const _ReminderControls();
+
+  Future<void> _toggle(BuildContext context, WidgetRef ref, bool value) async {
+    final ok = await ref.read(reminderProvider.notifier).setEnabled(value);
+    if (!ok && value && context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+              'Bildirim izni verilmedi. Sistem ayarlarından açabilirsin.'),
+        ),
+      );
+    }
+  }
+
+  Future<void> _pickTime(BuildContext context, WidgetRef ref) async {
+    final current = ref.read(reminderProvider);
+    final picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay(hour: current.hour, minute: current.minute),
+      helpText: 'Hatırlatma saati',
+    );
+    if (picked != null) {
+      await ref.read(reminderProvider.notifier).setTime(picked.hour, picked.minute);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final reminder = ref.watch(reminderProvider);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SwitchListTile(
+          contentPadding: EdgeInsets.zero,
+          value: reminder.enabled,
+          onChanged: (v) => _toggle(context, ref, v),
+          title: const Text('Günün konusunu hatırlat'),
+          subtitle: Text(
+            reminder.enabled
+                ? 'Her gün ${reminder.label}'
+                : 'Kapalı',
+            style: theme.textTheme.bodySmall
+                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+          ),
+        ),
+        if (reminder.enabled)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: TextButton.icon(
+              onPressed: () => _pickTime(context, ref),
+              icon: const Icon(Icons.schedule),
+              label: Text('Saati değiştir (${reminder.label})'),
+            ),
+          ),
+      ],
     );
   }
 }

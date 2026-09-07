@@ -22,6 +22,9 @@ bir akışta gösteren, çevrimdışı çalışan bir Flutter uygulaması.
 - **Kitab-ı Mukaddes okuyucu:** Eski + Yeni Ahit, 66 kitap, Türkçe.
 - **Favoriler & notlar:** konuları ve tek tek ayetleri kaydetme, üzerlerine kişisel not.
 - **Tam metin arama**, **kaldığın yere devam**, **paylaşım**.
+- **Okuma istatistikleri:** günlük seri, son bir haftanın şeridi, iki kitaptaki ilerleme — tamamı cihazda.
+- **Görsel paylaşım:** ayeti "Mürekkep & Kâğıt" tasarımıyla PNG kart olarak paylaşma.
+- **Günlük hatırlatıcı:** seçilen saatte "günün konusu" bildirimi (Android/iOS; web'de yok).
 - **Okuma ayarları:** yazı boyutu + açık/koyu/sistem teması (kalıcı).
 - **Çevrimdışı öncelikli:** tüm metinler uygulama içinde gömülü; fontlar dahil internet gerektirmez (tilavet hariç).
 
@@ -67,10 +70,11 @@ flutter run -d <ios-cihaz>     # cihazda imzalama için Xcode'da bir Team seçin
 
 ```
 lib/
-  core/          app_theme.dart, json_loader.dart
+  core/          app_theme.dart, json_loader.dart, daily_topic.dart, notifications.dart
   models/        theme_cluster, verse_entry, quran_models, bible_models, parallel, saved_verse
   providers/     themes, filter, favorites, settings, quran, bible,
-                 verse_bookmarks, reading_progress, audio
+                 verse_bookmarks, reading_progress, audio, search,
+                 bible_parallels, stats, reminder
   features/
     shell/         root_shell (alt menü)
     feed/          feed_page, theme_page, verse_card, comparison_page
@@ -82,9 +86,12 @@ lib/
     search/        scripture_search_page
     favorites/     favorites_page
     detail/        source_sheet
+    stats/         stats_page (okuma istatistikleri)
+    share/         verse_image_sheet (görsel paylaşım)
     about/         about_page
   widgets/       book_badge, similarity_chip, page_dots, parallel_list,
-                 reading_settings_sheet, verse_menu, share_helper
+                 reading_settings_sheet, verse_menu, share_helper,
+                 verse_image_card
 
 assets/data/     themes.json, quran.json, bible.json, parallels.json
 tools/           veri üretim script'leri (Python)

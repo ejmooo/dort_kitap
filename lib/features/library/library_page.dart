@@ -14,6 +14,7 @@ import '../bible/bible_page.dart';
 import '../quran/quran_page.dart';
 import '../quran/surah_page.dart';
 import '../search/scripture_search_page.dart';
+import '../stats/stats_page.dart';
 
 class LibraryPage extends ConsumerWidget {
   const LibraryPage({super.key});
@@ -50,6 +51,13 @@ class LibraryPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Oku'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.insights_outlined),
+            tooltip: 'Okuma istatistikleri',
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const StatsPage()),
+            ),
+          ),
           IconButton(
             icon: const Icon(Icons.search),
             tooltip: 'Metinde ara',
