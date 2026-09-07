@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/app_theme.dart';
 import '../../models/theme_cluster.dart';
 import '../../providers/themes_provider.dart';
 import '../../widgets/similarity_chip.dart';
@@ -88,7 +89,7 @@ class _CategoryHeader extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              '${category.toUpperCase()}  ·  $count',
+              '${trUpper(category)}  ·  $count',
               style: theme.textTheme.labelLarge?.copyWith(
                 color: theme.colorScheme.primary,
                 fontWeight: FontWeight.w800,

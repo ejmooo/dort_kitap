@@ -9,6 +9,11 @@ const String kLatinFont = 'Manrope'; // gövde/arayüz
 const String kSerifFont = 'Lora'; // başlıklar — editöryel karakter
 const String kArabicFont = 'Amiri'; // Arapça metin
 
+/// Türkçe'ye duyarlı büyük harf: Dart'ın toUpperCase'i i→I yaptığı için
+/// (İ kaybolur) önce i→İ ve ı→I dönüşümü uygulanır.
+String trUpper(String text) =>
+    text.replaceAll('i', 'İ').replaceAll('ı', 'I').toUpperCase();
+
 /// Kitap kimliklerine göre aksan rengi (sıcak paletle uyumlu, mücevher/toprak
 /// tonları) ve okunabilir etiket sağlar.
 class BookPalette {

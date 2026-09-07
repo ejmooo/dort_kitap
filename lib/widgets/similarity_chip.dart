@@ -4,6 +4,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../core/app_theme.dart';
+
 class SimilarityChip extends StatelessWidget {
   final String similarity;
 
@@ -29,7 +31,7 @@ class SimilarityChip extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Text(
-            label.toUpperCase(),
+            trUpper(label),
             style: TextStyle(
               color: color,
               fontWeight: FontWeight.w700,

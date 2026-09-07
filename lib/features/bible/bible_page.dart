@@ -109,7 +109,7 @@ class _Header extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 18, 20, 8),
       child: Text(
-        label.toUpperCase(),
+        trUpper(label),
         style: theme.textTheme.labelMedium?.copyWith(
           color: theme.colorScheme.primary,
           fontWeight: FontWeight.w800,

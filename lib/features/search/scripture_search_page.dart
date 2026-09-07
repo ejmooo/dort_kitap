@@ -1,35 +1,20 @@
 // scripture_search_page: Kur'an meali ve Kitab-ı Mukaddes metninde tam metin arama.
-// Sonuca dokununca ilgili sûre/bölüm açılır.
+// Önceden hazırlanmış küçük-harf dizini (searchIndexProvider) üzerinde, 300 ms
+// debounce ile tarar. Sonuca dokununca ilgili sûre/bölüm açılır.
+
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../models/bible_models.dart';
-import '../../models/quran_models.dart';
-import '../../providers/bible_provider.dart';
-import '../../providers/quran_provider.dart';
+import '../../providers/search_provider.dart';
 import '../bible/bible_chapter_page.dart';
 import '../quran/surah_page.dart';
 
 enum _Scope { all, quran, bible }
 
-class _Hit {
-  final String reference;
-  final String text;
-  final QuranSurah? surah;
-  final BibleBook? book;
-  final int? chapterIndex;
-
-  const _Hit({
-    required this.reference,
-    required this.text,
-    this.surah,
-    this.book,
-    this.chapterIndex,
-  });
-}
-
 const int _maxHits = 200;
+const Duration _debounce = Duration(milliseconds: 300);
 
 class ScriptureSearchPage extends ConsumerStatefulWidget {
   const ScriptureSearchPage({super.key});
@@ -41,56 +26,46 @@ class ScriptureSearchPage extends ConsumerStatefulWidget {
 
 class _ScriptureSearchPageState extends ConsumerState<ScriptureSearchPage> {
   final _controller = TextEditingController();
+  Timer? _debounceTimer;
   String _query = '';
   _Scope _scope = _Scope.all;
 
   @override
   void dispose() {
+    _debounceTimer?.cancel();
     _controller.dispose();
     super.dispose();
   }
 
-  List<_Hit> _search(List<QuranSurah> quran, List<BibleBook> bible) {
-    final q = _query.trim().toLowerCase();
-    final hits = <_Hit>[];
-    if (q.length < 2) return hits;
+  void _onChanged(String value) {
+    _debounceTimer?.cancel();
+    _debounceTimer = Timer(_debounce, () {
+      if (mounted) setState(() => _query = value);
+    });
+  }
 
-    if (_scope != _Scope.bible) {
-      for (final surah in quran) {
-        for (final ayah in surah.ayahs) {
-          if (ayah.turkish.toLowerCase().contains(q)) {
-            hits.add(_Hit(
-              reference: '${surah.name} ${surah.number}:${ayah.number}',
-              text: ayah.turkish,
-              surah: surah,
-            ));
-            if (hits.length >= _maxHits) return hits;
-          }
-        }
-      }
-    }
-    if (_scope != _Scope.quran) {
-      for (final book in bible) {
-        for (var ci = 0; ci < book.chapters.length; ci++) {
-          final chapter = book.chapters[ci];
-          for (final verse in chapter.verses) {
-            if (verse.text.toLowerCase().contains(q)) {
-              hits.add(_Hit(
-                reference: '${book.name} ${chapter.number}:${verse.number}',
-                text: verse.text,
-                book: book,
-                chapterIndex: ci,
-              ));
-              if (hits.length >= _maxHits) return hits;
-            }
-          }
-        }
+  void _clear() {
+    _debounceTimer?.cancel();
+    _controller.clear();
+    setState(() => _query = '');
+  }
+
+  List<SearchEntry> _search(List<SearchEntry> index) {
+    final q = _query.trim().toLowerCase();
+    final hits = <SearchEntry>[];
+    if (q.length < 2) return hits;
+    for (final entry in index) {
+      if (_scope == _Scope.quran && !entry.isQuran) continue;
+      if (_scope == _Scope.bible && entry.isQuran) continue;
+      if (entry.lower.contains(q)) {
+        hits.add(entry);
+        if (hits.length >= _maxHits) break;
       }
     }
     return hits;
   }
 
-  void _open(_Hit hit) {
+  void _open(SearchEntry hit) {
     if (hit.surah != null) {
       Navigator.of(context).push(
         MaterialPageRoute(builder: (_) => SurahPage(surah: hit.surah!)),
@@ -107,9 +82,7 @@ class _ScriptureSearchPageState extends ConsumerState<ScriptureSearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    final quran = ref.watch(quranProvider);
-    final bible = ref.watch(bibleProvider);
-    final loading = quran.isLoading || bible.isLoading;
+    final index = ref.watch(searchIndexProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Metinde ara')),
@@ -122,16 +95,13 @@ class _ScriptureSearchPageState extends ConsumerState<ScriptureSearchPage> {
               hintText: 'Bir kelime/ifade yazın (ör. sabır)',
               leading: const Icon(Icons.search),
               trailing: [
-                if (_query.isNotEmpty)
+                if (_controller.text.isNotEmpty)
                   IconButton(
                     icon: const Icon(Icons.close),
-                    onPressed: () {
-                      _controller.clear();
-                      setState(() => _query = '');
-                    },
+                    onPressed: _clear,
                   ),
               ],
-              onChanged: (v) => setState(() => _query = v),
+              onChanged: _onChanged,
             ),
           ),
           Padding(
@@ -147,16 +117,18 @@ class _ScriptureSearchPageState extends ConsumerState<ScriptureSearchPage> {
             ),
           ),
           Expanded(
-            child: loading
-                ? const Center(child: CircularProgressIndicator())
-                : _results(quran.value ?? const [], bible.value ?? const []),
+            child: index.when(
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (error, _) => Center(child: Text('Yüklenemedi: $error')),
+              data: _results,
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _results(List<QuranSurah> quran, List<BibleBook> bible) {
+  Widget _results(List<SearchEntry> index) {
     if (_query.trim().length < 2) {
       return const Center(
         child: Padding(
@@ -166,7 +138,7 @@ class _ScriptureSearchPageState extends ConsumerState<ScriptureSearchPage> {
         ),
       );
     }
-    final hits = _search(quran, bible);
+    final hits = _search(index);
     if (hits.isEmpty) {
       return const Center(child: Text('Sonuç bulunamadı.'));
     }

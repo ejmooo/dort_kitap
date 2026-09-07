@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Kuran tilaveti (sesli okuma) ağ üzerinden akar; release build için gerekli. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="dort_kitap"
+        android:label="Dört Kitap"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

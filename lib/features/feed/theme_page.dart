@@ -90,7 +90,7 @@ class _CoverCard extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(cluster.category.toUpperCase(),
+                    Text(trUpper(cluster.category),
                         style: AppTheme.kicker(context,
                             color: theme.colorScheme.primary)),
                     const SizedBox(height: 8),

@@ -33,10 +33,10 @@ bir akışta gösteren, çevrimdışı çalışan bir Flutter uygulaması.
 
 ## Teknoloji
 
-- **Flutter + Dart** (null-safety), platformlar: **Android + Web**
+- **Flutter + Dart** (null-safety), platformlar: **Android · iOS · Web**
 - **Riverpod** (klasik `Notifier`/`NotifierProvider`, kod üretimi yok)
 - `shared_preferences` (favoriler, notlar, ayarlar, ilerleme), `share_plus`, `audioplayers`
-- Çevrimdışı fontlar: **Manrope** (Latin) + **Amiri** (Arapça)
+- Çevrimdışı fontlar: **Manrope** (gövde) · **Lora** (başlık serif) · **Amiri** (Arapça)
 - Backend yok — veri `assets/data/*.json`'dan okunur
 
 ---
@@ -45,10 +45,21 @@ bir akışta gösteren, çevrimdışı çalışan bir Flutter uygulaması.
 
 ```bash
 flutter pub get
-flutter run -d chrome      # veya: flutter run -d <android-cihaz>
+flutter run -d chrome           # web
+flutter run -d <android-cihaz>  # Android
 ```
 
 Gereksinim: Flutter 3.44+ / Dart 3.12+.
+
+### iOS
+
+iOS projesi eklidir (`ios/`, bundle `com.ejmo.dortKitap`). Derlemek için **macOS + tam Xcode + CocoaPods** gerekir:
+
+```bash
+sudo gem install cocoapods     # (veya: brew install cocoapods)
+cd ios && pod install && cd ..
+flutter run -d <ios-cihaz>     # cihazda imzalama için Xcode'da bir Team seçin
+```
 
 ---
 
@@ -122,7 +133,7 @@ deneyip Console > Usage'dan ölçmek önerilir. Üretilen tüm paraleller arayü
 | Kur'an — İngilizce | M. Pickthall (alquran.cloud) | Kamu malı |
 | Tevrat/Zebur/İncil — İngilizce | World English Bible (bible-api.com) | Kamu malı |
 | Tevrat/Zebur/İncil — Türkçe | Kutsal Kitap, Yeni Çeviri (getbible.net / CrossWire) | **Telifli, dağıtım izinli** |
-| Tilavet sesi | Mishary Alafasy (cdn.islamic.network) | Çevrimiçi yayınlanır |
+| Tilavet sesi | Mishary Alafasy (everyayah.com) | Çevrimiçi yayınlanır |
 
 > ⚠️ **Türkçe Kitab-ı Mukaddes metni telif altındadır** (CrossWire üzerinden dağıtım izinli).
 > Bu depoyu yayınlamadan/dağıtmadan önce ilgili lisansları teyit etmeniz önerilir.

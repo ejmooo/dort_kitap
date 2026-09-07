@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/app_theme.dart';
 import '../../models/saved_verse.dart';
 import '../../models/theme_cluster.dart';
 import '../../providers/bible_provider.dart';
@@ -107,7 +108,7 @@ class _FavoriteTile extends ConsumerWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      cluster.category.toUpperCase(),
+                      trUpper(cluster.category),
                       style: theme.textTheme.labelSmall?.copyWith(
                         color: theme.colorScheme.primary,
                         letterSpacing: 0.8,

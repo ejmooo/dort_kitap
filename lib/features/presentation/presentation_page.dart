@@ -1,7 +1,9 @@
 // presentation_page: sınıf/projeksiyon için tam ekran, büyük puntolu sunum modu.
-// Yatay kaydırma ile temalar arasında geçilir; her tema tek ekranda dört kitabıyla.
+// Yatay kaydırma veya ok tuşları (← →) ile temalar arasında geçilir; Esc ile çıkılır.
+// Açılınca sistem çubukları gizlenir (immersive), çıkınca geri gelir.
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../core/app_theme.dart';
 import '../../models/theme_cluster.dart';
@@ -30,58 +32,95 @@ class _PresentationPageState extends State<PresentationPage> {
   late int _index = widget.startIndex;
 
   @override
+  void initState() {
+    super.initState();
+    // Projeksiyon için sistem çubuklarını gizle.
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+  }
+
+  @override
   void dispose() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     _controller.dispose();
     super.dispose();
   }
 
-  void _go(int i) => _controller.animateToPage(
-        i,
-        duration: const Duration(milliseconds: 350),
-        curve: Curves.easeInOut,
-      );
+  void _go(int i) {
+    if (i < 0 || i >= widget.themes.length) return;
+    _controller.animateToPage(
+      i,
+      duration: const Duration(milliseconds: 350),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  KeyEventResult _onKey(FocusNode node, KeyEvent event) {
+    if (event is! KeyDownEvent) return KeyEventResult.ignored;
+    final key = event.logicalKey;
+    if (key == LogicalKeyboardKey.arrowRight ||
+        key == LogicalKeyboardKey.space ||
+        key == LogicalKeyboardKey.pageDown) {
+      _go(_index + 1);
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.arrowLeft ||
+        key == LogicalKeyboardKey.pageUp) {
+      _go(_index - 1);
+      return KeyEventResult.handled;
+    }
+    if (key == LogicalKeyboardKey.escape) {
+      Navigator.of(context).maybePop();
+      return KeyEventResult.handled;
+    }
+    return KeyEventResult.ignored;
+  }
 
   @override
   Widget build(BuildContext context) {
     final total = widget.themes.length;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('${_index + 1} / $total'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            tooltip: 'Sunumdan çık',
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ],
-      ),
-      body: PageView.builder(
-        controller: _controller,
-        onPageChanged: (i) => setState(() => _index = i),
-        itemCount: total,
-        itemBuilder: (context, i) => _Slide(cluster: widget.themes[i]),
-      ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 6, 16, 10),
-          child: Row(
-            children: [
-              Expanded(
-                child: OutlinedButton.icon(
-                  onPressed: _index > 0 ? () => _go(_index - 1) : null,
-                  icon: const Icon(Icons.chevron_left),
-                  label: const Text('Önceki'),
+    return Focus(
+      autofocus: true,
+      onKeyEvent: _onKey,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('${_index + 1} / $total'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.close),
+              tooltip: 'Sunumdan çık (Esc)',
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+        body: PageView.builder(
+          controller: _controller,
+          onPageChanged: (i) => setState(() => _index = i),
+          itemCount: total,
+          itemBuilder: (context, i) => _Slide(cluster: widget.themes[i]),
+        ),
+        bottomNavigationBar: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 6, 16, 10),
+            child: Row(
+              children: [
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed: _index > 0 ? () => _go(_index - 1) : null,
+                    icon: const Icon(Icons.chevron_left),
+                    label: const Text('Önceki'),
+                  ),
                 ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: OutlinedButton.icon(
-                  onPressed: _index < total - 1 ? () => _go(_index + 1) : null,
-                  icon: const Icon(Icons.chevron_right),
-                  label: const Text('Sonraki'),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: OutlinedButton.icon(
+                    onPressed:
+                        _index < total - 1 ? () => _go(_index + 1) : null,
+                    icon: const Icon(Icons.chevron_right),
+                    label: const Text('Sonraki'),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

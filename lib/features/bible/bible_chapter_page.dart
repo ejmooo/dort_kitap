@@ -1,13 +1,16 @@
 // bible_chapter_page: bir bölümün ayetlerini Türkçe gösterir. Her ayette kopyala/
-// kaydet/not menüsü; altta önceki/sonraki bölüm gezinmesi.
+// kaydet/not menüsü, varsa Kur'an'daki benzer ayetler; altta bölüm gezinmesi.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/app_theme.dart';
 import '../../models/bible_models.dart';
+import '../../models/parallel.dart';
 import '../../models/saved_verse.dart';
+import '../../providers/bible_parallels_provider.dart';
 import '../../providers/reading_progress_provider.dart';
+import '../../widgets/parallel_list.dart';
 import '../../widgets/reading_settings_sheet.dart';
 import '../../widgets/verse_menu.dart';
 
@@ -69,16 +72,25 @@ class _BibleChapterPageState extends ConsumerState<BibleChapterPage> {
           ),
         ],
       ),
-      body: ListView.builder(
-        padding: const EdgeInsets.all(16),
-        itemCount: chapter.verses.length,
-        itemBuilder: (context, i) => _VerseTile(
-          book: book,
-          chapter: chapter,
-          verse: chapter.verses[i],
-          accent: accent,
-        ),
-      ),
+      body: Builder(builder: (context) {
+        final reverseParallels =
+            ref.watch(bibleParallelsProvider).value ?? const {};
+        return ListView.builder(
+          padding: const EdgeInsets.all(16),
+          itemCount: chapter.verses.length,
+          itemBuilder: (context, i) {
+            final verse = chapter.verses[i];
+            final key = '${book.nr}:${chapter.number}:${verse.number}';
+            return _VerseTile(
+              book: book,
+              chapter: chapter,
+              verse: verse,
+              accent: accent,
+              parallels: reverseParallels[key] ?? const [],
+            );
+          },
+        );
+      }),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(16, 6, 16, 10),
@@ -114,12 +126,14 @@ class _VerseTile extends StatelessWidget {
   final BibleChapter chapter;
   final BibleVerse verse;
   final Color accent;
+  final List<Parallel> parallels;
 
   const _VerseTile({
     required this.book,
     required this.chapter,
     required this.verse,
     required this.accent,
+    required this.parallels,
   });
 
   @override
@@ -144,9 +158,16 @@ class _VerseTile extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 1),
-              child: Text(
-                verse.text,
-                style: theme.textTheme.titleMedium?.copyWith(height: 1.6),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    verse.text,
+                    style: theme.textTheme.titleMedium?.copyWith(height: 1.6),
+                  ),
+                  if (parallels.isNotEmpty)
+                    ParallelList(parallels: parallels),
+                ],
               ),
             ),
           ),
