@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/app_theme.dart';
 import '../../widgets/reading_settings_sheet.dart';
+import 'legal_page.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -72,9 +73,12 @@ class AboutPage extends StatelessWidget {
             title: 'Kaynaklar',
             body: '• Kur’an: Arapça (Uthmânî hat) ve Türkçe meal (Elmalılı Hamdi '
                 'Yazır) — kamu malı metinler.\n'
-                '• Tevrat/Zebur/İncil: İngilizce World English Bible (kamu malı). '
-                'Telifli Türkçe çeviriler gömülmez.\n'
-                'Her ayetin kaynağı kart üzerindeki “Kaynak” bölümünden görülebilir.',
+                '• Tevrat/Zebur/İncil: Türkçe metin “Kutsal Kitap Yeni Çeviri”ye '
+                'dayanır ve telif hakkı saklıdır; İngilizce metin World English '
+                'Bible’dır (kamu malı).\n'
+                'Her ayetin kaynağı kart üzerindeki “Kaynak” bölümünden görülebilir. '
+                'Telif ayrıntıları için aşağıdaki “Telif Hakkı ve Feragatname” '
+                'sayfasına bakın.',
           ),
           const _Section(
             icon: Icons.smart_toy_outlined,
@@ -84,7 +88,8 @@ class AboutPage extends StatelessWidget {
                 'kullanımda mutlaka asıl kaynaklardan teyit edilmelidir. '
                 '“Doğrulanmış” etiketli benzerlikler ise küratörlü referanslardır.',
           ),
-          const SizedBox(height: 8),
+          const _LegalLink(),
+          const SizedBox(height: 20),
           Center(
             child: Text('Eğitim ve karşılaştırmalı okuma amaçlıdır.',
                 style: theme.textTheme.bodySmall
@@ -93,6 +98,51 @@ class AboutPage extends StatelessWidget {
           const SizedBox(height: 36),
           const _Signature(),
         ],
+      ),
+    );
+  }
+}
+
+/// Telif/feragatname sayfasına giden bağlantı. Mağaza sürümünde bu sayfanın
+/// uygulama içinden erişilebilir olması gerekir.
+class _LegalLink extends StatelessWidget {
+  const _LegalLink();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return InkWell(
+      borderRadius: BorderRadius.circular(14),
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const LegalPage()),
+      ),
+      child: Ink(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(14),
+          border: Border.all(color: theme.colorScheme.outlineVariant),
+        ),
+        child: Row(
+          children: [
+            Icon(Icons.gavel_outlined, size: 20, color: theme.colorScheme.primary),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Telif Hakkı ve Feragatname',
+                      style: theme.textTheme.titleSmall
+                          ?.copyWith(fontWeight: FontWeight.w700)),
+                  const SizedBox(height: 2),
+                  Text('Metin kaynakları, hak sahipleri ve sorumluluk sınırları',
+                      style: theme.textTheme.bodySmall?.copyWith(
+                          color: theme.colorScheme.onSurfaceVariant)),
+                ],
+              ),
+            ),
+            Icon(Icons.chevron_right, color: theme.colorScheme.onSurfaceVariant),
+          ],
+        ),
       ),
     );
   }

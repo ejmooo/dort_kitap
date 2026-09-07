@@ -142,8 +142,17 @@ deneyip Console > Usage'dan ölçmek önerilir. Üretilen tüm paraleller arayü
 | Tevrat/Zebur/İncil — Türkçe | Kutsal Kitap, Yeni Çeviri (getbible.net / CrossWire) | **Telifli, dağıtım izinli** |
 | Tilavet sesi | Mishary Alafasy (everyayah.com) | Çevrimiçi yayınlanır |
 
-> ⚠️ **Türkçe Kitab-ı Mukaddes metni telif altındadır** (CrossWire üzerinden dağıtım izinli).
-> Bu depoyu yayınlamadan/dağıtmadan önce ilgili lisansları teyit etmeniz önerilir.
+> ⚠️ **Türkçe Kitab-ı Mukaddes metni telif altındadır.** CrossWire'ın telif kaydı
+> bu metin için "Copyrighted; Permission to distribute granted to CrossWire" diyor —
+> yani dağıtım izni **CrossWire'a** verilmiş, CrossWire'dan indiren üçüncü taraflara
+> değil. Bu uygulama o iznin kapsamında sayılmaz.
+>
+> **Mağazalara sürmeden önce** hak sahibinden yazılı izin alınmalı veya metin açık
+> lisanslı bir çeviriyle değiştirilmelidir. İzin başvurusu taslağı:
+> [`docs/telif-izin-basvurusu.md`](docs/telif-izin-basvurusu.md).
+> Açık lisanslı alternatifler (YTC — tam Kitab-ı Mukaddes, CC BY-ND):
+> [`docs/telif-alternatifler.md`](docs/telif-alternatifler.md).
+>
 > İngilizce (kamu malı) metinler veride yedek olarak saklanır.
 
 ---
