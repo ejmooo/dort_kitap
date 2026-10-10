@@ -1,6 +1,5 @@
-// app_theme: "Mürekkep & Kâğıt" tasarım dili. Sıcak kâğıt zemini, mürekkep tonu
-// metin, pirinç/altın vurgu; başlıklarda serif (Lora), gövdede Manrope, Arapça'da
-// Amiri. Material varsayılanı yerine elle kurulmuş, editöryel bir kimlik.
+// Okuma Atlası: fildişi, gece yeşili ve dört geleneğin renkleri.
+// Çevrimdışı Lora / Manrope / Amiri tipografisi.
 
 import 'package:flutter/material.dart';
 
@@ -30,7 +29,7 @@ class BookPalette {
     'tevrat': 'Tevrat',
     'zebur': 'Zebur',
     'incil': 'İncil',
-    'kuran': 'Kuran',
+    'kuran': 'Kur’an',
   };
 
   static Color accent(String book) => _accents[book] ?? const Color(0xFF6B6253);
@@ -41,16 +40,16 @@ class BookPalette {
 class AppTheme {
   const AppTheme._();
 
-  // Pirinç/altın marka vurgusu.
-  static const Color _brass = Color(0xFF9A6A2E);
-  static const Color _gold = Color(0xFFD2A862);
+  // Gece yeşili / adaçayı marka vurgusu.
+  static const Color _forest = Color(0xFF285C50);
+  static const Color _sage = Color(0xFFB9DBC8);
 
   static final ColorScheme _light = const ColorScheme(
     brightness: Brightness.light,
-    primary: _brass,
+    primary: _forest,
     onPrimary: Color(0xFFFFFFFF),
-    primaryContainer: Color(0xFFF0DFC4),
-    onPrimaryContainer: Color(0xFF553811),
+    primaryContainer: Color(0xFFDCEBE1),
+    onPrimaryContainer: Color(0xFF173D32),
     secondary: Color(0xFF6F6655),
     onSecondary: Color(0xFFFFFFFF),
     secondaryContainer: Color(0xFFEAE0CD),
@@ -63,11 +62,11 @@ class AppTheme {
     onError: Color(0xFFFFFFFF),
     errorContainer: Color(0xFFF6D9D3),
     onErrorContainer: Color(0xFF410E07),
-    surface: Color(0xFFF5EFE3), // kâğıt
-    onSurface: Color(0xFF241F18), // mürekkep
+    surface: Color(0xFFF6F4ED), // kâğıt
+    onSurface: Color(0xFF182D29), // mürekkep
     onSurfaceVariant: Color(0xFF6F6655),
     surfaceContainerLowest: Color(0xFFFFFFFF),
-    surfaceContainerLow: Color(0xFFFBF6EC),
+    surfaceContainerLow: Color(0xFFFFFEF9),
     surfaceContainer: Color(0xFFF1EADC),
     surfaceContainerHigh: Color(0xFFEBE2D0),
     surfaceContainerHighest: Color(0xFFE5DBC6),
@@ -76,15 +75,15 @@ class AppTheme {
     shadow: Color(0xFF000000),
     scrim: Color(0xFF000000),
     inverseSurface: Color(0xFF332D24),
-    onInverseSurface: Color(0xFFF5EFE3),
-    inversePrimary: _gold,
+    onInverseSurface: Color(0xFFF6F4ED),
+    inversePrimary: _sage,
   );
 
   static final ColorScheme _dark = const ColorScheme(
     brightness: Brightness.dark,
-    primary: _gold,
-    onPrimary: Color(0xFF3A2708),
-    primaryContainer: Color(0xFF5A431F),
+    primary: _sage,
+    onPrimary: Color(0xFF15382C),
+    primaryContainer: Color(0xFF305344),
     onPrimaryContainer: Color(0xFFF3E2C4),
     secondary: Color(0xFFC9BCA1),
     onSecondary: Color(0xFF332D20),
@@ -98,21 +97,21 @@ class AppTheme {
     onError: Color(0xFF5C1408),
     errorContainer: Color(0xFF7A2618),
     onErrorContainer: Color(0xFFF9DAD3),
-    surface: Color(0xFF15130E), // gece mürekkebi
+    surface: Color(0xFF101E1B), // gece mürekkebi
     onSurface: Color(0xFFECE4D4), // krem
     onSurfaceVariant: Color(0xFFB6AB95),
-    surfaceContainerLowest: Color(0xFF100E0A),
-    surfaceContainerLow: Color(0xFF1B1813),
-    surfaceContainer: Color(0xFF201D16),
-    surfaceContainerHigh: Color(0xFF2A261D),
-    surfaceContainerHighest: Color(0xFF353026),
+    surfaceContainerLowest: Color(0xFF0C1714),
+    surfaceContainerLow: Color(0xFF182B26),
+    surfaceContainer: Color(0xFF1E322C),
+    surfaceContainerHigh: Color(0xFF263C34),
+    surfaceContainerHighest: Color(0xFF30483E),
     outline: Color(0xFF6E6451),
-    outlineVariant: Color(0xFF3A3429),
+    outlineVariant: Color(0xFF354B42),
     shadow: Color(0xFF000000),
     scrim: Color(0xFF000000),
     inverseSurface: Color(0xFFECE4D4),
-    onInverseSurface: Color(0xFF2A261D),
-    inversePrimary: _brass,
+    onInverseSurface: Color(0xFF263C34),
+    inversePrimary: _forest,
   );
 
   static ThemeData light() => _build(_light);
@@ -129,6 +128,19 @@ class AppTheme {
     );
 
     return base.copyWith(
+      visualDensity: VisualDensity.standard,
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: scheme.surfaceContainerLow,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+          borderSide: BorderSide.none,
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 18,
+          vertical: 16,
+        ),
+      ),
       textTheme: _textTheme(base.textTheme, scheme),
       appBarTheme: AppBarTheme(
         backgroundColor: scheme.surface,
@@ -149,7 +161,7 @@ class AppTheme {
         surfaceTintColor: Colors.transparent,
         indicatorColor: scheme.primary.withValues(alpha: 0.16),
         elevation: 0,
-        height: 66,
+        height: 72,
         labelTextStyle: WidgetStateProperty.resolveWith(
           (states) => TextStyle(
             fontSize: 11.5,
@@ -194,15 +206,13 @@ class AppTheme {
         backgroundColor: scheme.surfaceContainerLow,
         surfaceTintColor: Colors.transparent,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
         ),
       ),
       dialogTheme: DialogThemeData(
         backgroundColor: scheme.surfaceContainerLow,
         surfaceTintColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(22),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(22)),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(

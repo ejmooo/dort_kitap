@@ -30,8 +30,11 @@ class DortKitapApp extends ConsumerWidget {
       darkTheme: AppTheme.dark(),
       themeMode: settings.themeMode,
       builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(context)
-            .copyWith(textScaler: TextScaler.linear(settings.textScale)),
+        data: MediaQuery.of(context).copyWith(
+          textScaler: TextScaler.linear(
+            MediaQuery.textScalerOf(context).scale(1) * settings.textScale,
+          ),
+        ),
         child: child!,
       ),
       home: const RootShell(),

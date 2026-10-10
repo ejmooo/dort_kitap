@@ -12,7 +12,10 @@ class BookBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = BookPalette.accent(book);
+    final baseColor = BookPalette.accent(book);
+    final color = Theme.of(context).brightness == Brightness.dark
+        ? Color.lerp(baseColor, Colors.white, .5)!
+        : baseColor;
     final dotSize = large ? 10.0 : 8.0;
     return Container(
       padding: EdgeInsets.symmetric(
@@ -33,13 +36,15 @@ class BookBadge extends StatelessWidget {
             decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           ),
           SizedBox(width: large ? 10 : 8),
-          Text(
-            BookPalette.label(book),
-            style: TextStyle(
-              color: color,
-              fontWeight: FontWeight.w700,
-              fontSize: large ? 16 : 13,
-              letterSpacing: 0.2,
+          Flexible(
+            child: Text(
+              BookPalette.label(book),
+              style: TextStyle(
+                color: color,
+                fontWeight: FontWeight.w700,
+                fontSize: large ? 16 : 13,
+                letterSpacing: 0.2,
+              ),
             ),
           ),
         ],

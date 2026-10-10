@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../widgets/atlas_motion.dart';
 import '../about/about_page.dart';
 import '../favorites/favorites_page.dart';
 import '../feed/feed_page.dart';
@@ -19,6 +20,7 @@ class RootShell extends ConsumerStatefulWidget {
 
 class _RootShellState extends ConsumerState<RootShell> {
   int _index = 0;
+  final _visited = <int>{0};
 
   static const _pages = [
     FeedPage(),
@@ -48,28 +50,79 @@ class _RootShellState extends ConsumerState<RootShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: _index, children: _pages),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _index,
-        onDestinationSelected: (i) => setState(() => _index = i),
-        destinations: const [
-          NavigationDestination(
-              icon: Icon(Icons.dynamic_feed_outlined),
-              selectedIcon: Icon(Icons.dynamic_feed),
-              label: 'Akış'),
-          NavigationDestination(
-              icon: Icon(Icons.menu_book_outlined),
-              selectedIcon: Icon(Icons.menu_book),
-              label: 'Oku'),
-          NavigationDestination(
-              icon: Icon(Icons.bookmark_outline),
-              selectedIcon: Icon(Icons.bookmark),
-              label: 'Favoriler'),
-          NavigationDestination(
-              icon: Icon(Icons.info_outline),
-              selectedIcon: Icon(Icons.info),
-              label: 'Hakkında'),
+      body: IndexedStack(
+        index: _index,
+        children: [
+          for (var i = 0; i < _pages.length; i++)
+            TickerMode(
+              enabled: i == _index,
+              child: AnimatedOpacity(
+                opacity: i == _index ? 1 : 0,
+                duration: AtlasMotion.duration(context),
+                child: _visited.contains(i)
+                    ? _pages[i]
+                    : const SizedBox.shrink(),
+              ),
+            ),
         ],
+      ),
+      bottomNavigationBar: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 6, 16, 10),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(28),
+              border: Border.all(
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: .04),
+                  blurRadius: 20,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(28),
+              child: NavigationBar(
+                selectedIndex: _index,
+                animationDuration: AtlasMotion.duration(context),
+                onDestinationSelected: (i) {
+                  if (_index == i) return;
+                  AtlasMotion.selection();
+                  setState(() {
+                    _index = i;
+                    _visited.add(i);
+                  });
+                },
+                destinations: const [
+                  NavigationDestination(
+                    icon: Icon(Icons.dynamic_feed_outlined),
+                    selectedIcon: Icon(Icons.dynamic_feed),
+                    label: 'Keşfet',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.menu_book_outlined),
+                    selectedIcon: Icon(Icons.menu_book),
+                    label: 'Oku',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.bookmark_outline),
+                    selectedIcon: Icon(Icons.bookmark),
+                    label: 'Favoriler',
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.info_outline),
+                    selectedIcon: Icon(Icons.info),
+                    label: 'Hakkında',
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -83,22 +136,39 @@ class _WelcomeDialog extends StatelessWidget {
     final theme = Theme.of(context);
     return AlertDialog(
       title: const Text('Dört Kitap’a hoş geldiniz'),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Dört kutsal kitabın ortak konuları nasıl ele aldığını tarafsız '
-            'biçimde keşfedin.',
-            style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
-          ),
-          const SizedBox(height: 16),
-          const _Tip(icon: Icons.swipe_vertical, text: 'Yukarı/aşağı kaydır: konu değiştir'),
-          const _Tip(icon: Icons.swipe, text: 'Sağa/sola kaydır: kitap değiştir'),
-          const _Tip(icon: Icons.menu_book, text: 'Oku sekmesi: tüm Kur’an ve Kitab-ı Mukaddes'),
-          const _Tip(icon: Icons.bookmark_add, text: 'Ayet menüsü (⋮): kaydet ve not ekle'),
-          const _Tip(icon: Icons.tune, text: 'Yazı boyutu ve tema: okuma ayarlarından'),
-        ],
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Dört kutsal kitabın ortak konuları nasıl ele aldığını tarafsız '
+              'biçimde keşfedin.',
+              style: theme.textTheme.bodyMedium?.copyWith(height: 1.5),
+            ),
+            const SizedBox(height: 16),
+            const _Tip(
+              icon: Icons.swipe_vertical,
+              text: 'Yukarı/aşağı kaydır: konu değiştir',
+            ),
+            const _Tip(
+              icon: Icons.swipe,
+              text: 'Sağa/sola kaydır: kitap değiştir',
+            ),
+            const _Tip(
+              icon: Icons.menu_book,
+              text: 'Oku sekmesi: tüm Kur’an ve Kitab-ı Mukaddes',
+            ),
+            const _Tip(
+              icon: Icons.bookmark_add,
+              text: 'Ayet menüsü (⋮): kaydet ve not ekle',
+            ),
+            const _Tip(
+              icon: Icons.tune,
+              text: 'Yazı boyutu ve tema: okuma ayarlarından',
+            ),
+          ],
+        ),
       ),
       actions: [
         FilledButton(

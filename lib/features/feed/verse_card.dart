@@ -30,12 +30,12 @@ class VerseCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(20, 16, 20, 4),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(28),
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
             color: theme.colorScheme.surfaceContainerLow,
-            borderRadius: BorderRadius.circular(22),
+            borderRadius: BorderRadius.circular(28),
             border: Border.all(color: theme.colorScheme.outlineVariant),
           ),
           child: Row(
@@ -76,43 +76,43 @@ class _Content extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            BookBadge(book: entry.book, large: true),
-            const Spacer(),
-            SimilarityChip(similarity: similarity),
-          ],
-        ),
-        const SizedBox(height: 14),
-        Text(
-          entry.reference,
-          style: theme.textTheme.titleSmall?.copyWith(
-            color: accent,
-            fontWeight: FontWeight.w700,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Wrap(
+            spacing: 12,
+            runSpacing: 8,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              BookBadge(book: entry.book, large: true),
+              SimilarityChip(similarity: similarity),
+            ],
           ),
-        ),
-        const SizedBox(height: 18),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: _verseTexts(context, entry),
+          const SizedBox(height: 14),
+          Text(
+            entry.reference,
+            style: theme.textTheme.titleSmall?.copyWith(
+              color: accent,
+              fontWeight: FontWeight.w700,
             ),
           ),
-        ),
-        const SizedBox(height: 8),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton.icon(
-            onPressed: () => showSourceSheet(context, entry),
-            icon: const Icon(Icons.menu_book_outlined, size: 18),
-            label: const Text('Kaynak'),
+          const SizedBox(height: 18),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: _verseTexts(context, entry),
           ),
-        ),
-      ],
+          const SizedBox(height: 8),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton.icon(
+              onPressed: () => showSourceSheet(context, entry),
+              icon: const Icon(Icons.menu_book_outlined, size: 18),
+              label: const Text('Kaynak'),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -160,9 +160,7 @@ class _Content extends StatelessWidget {
     }
 
     if (widgets.isEmpty) {
-      widgets.add(
-        Text('Metin bulunamadı.', style: theme.textTheme.bodyMedium),
-      );
+      widgets.add(Text('Metin bulunamadı.', style: theme.textTheme.bodyMedium));
     }
 
     return widgets;

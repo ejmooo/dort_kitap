@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../core/notifications.dart';
+import 'atlas_motion.dart';
 import '../providers/reminder_provider.dart';
 import '../providers/settings_provider.dart';
 
@@ -12,6 +13,11 @@ Future<void> showReadingSettings(BuildContext context) {
   return showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
+    isScrollControlled: true,
+    useSafeArea: true,
+    constraints: BoxConstraints(
+      maxHeight: MediaQuery.sizeOf(context).height * .85,
+    ),
     builder: (_) => const _ReadingSettingsSheet(),
   );
 }
@@ -27,88 +33,105 @@ class _ReadingSettingsSheet extends ConsumerWidget {
     final percent = (settings.textScale * 100).round();
 
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Okuma ayarları',
-                style: theme.textTheme.titleLarge
-                    ?.copyWith(fontWeight: FontWeight.w700)),
-            const SizedBox(height: 20),
-
-            // Yazı boyutu
-            Text('Yazı boyutu',
-                style: theme.textTheme.labelLarge
-                    ?.copyWith(color: theme.colorScheme.primary)),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                _RoundButton(
-                  icon: Icons.text_decrease,
-                  onTap: settings.textScale <= SettingsNotifier.minScale
-                      ? null
-                      : notifier.decreaseText,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 4, 20, 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Okuma ayarları',
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
                 ),
-                Expanded(
-                  child: Slider(
-                    value: settings.textScale,
-                    min: SettingsNotifier.minScale,
-                    max: SettingsNotifier.maxScale,
-                    divisions: 15,
-                    label: '%$percent',
-                    onChanged: notifier.setTextScale,
+              ),
+              const SizedBox(height: 20),
+
+              // Yazı boyutu
+              Text(
+                'Yazı boyutu',
+                style: theme.textTheme.labelLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  _RoundButton(
+                    icon: Icons.text_decrease,
+                    onTap: settings.textScale <= SettingsNotifier.minScale
+                        ? null
+                        : notifier.decreaseText,
+                  ),
+                  Expanded(
+                    child: Slider(
+                      value: settings.textScale,
+                      min: SettingsNotifier.minScale,
+                      max: SettingsNotifier.maxScale,
+                      divisions: 15,
+                      label: '%$percent',
+                      onChanged: notifier.setTextScale,
+                    ),
+                  ),
+                  _RoundButton(
+                    icon: Icons.text_increase,
+                    onTap: settings.textScale >= SettingsNotifier.maxScale
+                        ? null
+                        : notifier.increaseText,
+                  ),
+                ],
+              ),
+              Center(
+                child: Text(
+                  'Örnek metin · %$percent',
+                  style: theme.textTheme.titleMedium,
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Tema kipi
+              Text(
+                'Görünüm',
+                style: theme.textTheme.labelLarge?.copyWith(
+                  color: theme.colorScheme.primary,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final mode in ThemeMode.values)
+                    ChoiceChip(
+                      label: Text(switch (mode) {
+                        ThemeMode.system => 'Sistem',
+                        ThemeMode.light => 'Açık',
+                        ThemeMode.dark => 'Koyu',
+                      }),
+                      selected: settings.themeMode == mode,
+                      onSelected: (_) {
+                        AtlasMotion.selection();
+                        notifier.setThemeMode(mode);
+                      },
+                    ),
+                ],
+              ),
+
+              // Günlük hatırlatıcı — web'de yerel bildirim planlanamıyor.
+              if (DailyReminders.instance.supported) ...[
+                const SizedBox(height: 24),
+                Text(
+                  'Günlük hatırlatıcı',
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    color: theme.colorScheme.primary,
                   ),
                 ),
-                _RoundButton(
-                  icon: Icons.text_increase,
-                  onTap: settings.textScale >= SettingsNotifier.maxScale
-                      ? null
-                      : notifier.increaseText,
-                ),
+                const SizedBox(height: 4),
+                const _ReminderControls(),
               ],
-            ),
-            Center(
-              child: Text('Örnek metin · %$percent',
-                  style: theme.textTheme.titleMedium),
-            ),
-            const SizedBox(height: 24),
-
-            // Tema kipi
-            Text('Görünüm',
-                style: theme.textTheme.labelLarge
-                    ?.copyWith(color: theme.colorScheme.primary)),
-            const SizedBox(height: 8),
-            SegmentedButton<ThemeMode>(
-              segments: const [
-                ButtonSegment(
-                    value: ThemeMode.system,
-                    icon: Icon(Icons.brightness_auto),
-                    label: Text('Sistem')),
-                ButtonSegment(
-                    value: ThemeMode.light,
-                    icon: Icon(Icons.light_mode),
-                    label: Text('Açık')),
-                ButtonSegment(
-                    value: ThemeMode.dark,
-                    icon: Icon(Icons.dark_mode),
-                    label: Text('Koyu')),
-              ],
-              selected: {settings.themeMode},
-              onSelectionChanged: (s) => notifier.setThemeMode(s.first),
-            ),
-
-            // Günlük hatırlatıcı — web'de yerel bildirim planlanamıyor.
-            if (DailyReminders.instance.supported) ...[
-              const SizedBox(height: 24),
-              Text('Günlük hatırlatıcı',
-                  style: theme.textTheme.labelLarge
-                      ?.copyWith(color: theme.colorScheme.primary)),
-              const SizedBox(height: 4),
-              const _ReminderControls(),
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -124,7 +147,8 @@ class _ReminderControls extends ConsumerWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-              'Bildirim izni verilmedi. Sistem ayarlarından açabilirsin.'),
+            'Bildirim izni verilmedi. Sistem ayarlarından açabilirsin.',
+          ),
         ),
       );
     }
@@ -138,7 +162,9 @@ class _ReminderControls extends ConsumerWidget {
       helpText: 'Hatırlatma saati',
     );
     if (picked != null) {
-      await ref.read(reminderProvider.notifier).setTime(picked.hour, picked.minute);
+      await ref
+          .read(reminderProvider.notifier)
+          .setTime(picked.hour, picked.minute);
     }
   }
 
@@ -156,11 +182,10 @@ class _ReminderControls extends ConsumerWidget {
           onChanged: (v) => _toggle(context, ref, v),
           title: const Text('Günün konusunu hatırlat'),
           subtitle: Text(
-            reminder.enabled
-                ? 'Her gün ${reminder.label}'
-                : 'Kapalı',
-            style: theme.textTheme.bodySmall
-                ?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+            reminder.enabled ? 'Her gün ${reminder.label}' : 'Kapalı',
+            style: theme.textTheme.bodySmall?.copyWith(
+              color: theme.colorScheme.onSurfaceVariant,
+            ),
           ),
         ),
         if (reminder.enabled)
@@ -185,9 +210,6 @@ class _RoundButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton.filledTonal(
-      onPressed: onTap,
-      icon: Icon(icon),
-    );
+    return IconButton.filledTonal(onPressed: onTap, icon: Icon(icon));
   }
 }

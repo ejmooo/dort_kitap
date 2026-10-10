@@ -1,32 +1,28 @@
-// theme_page: bir temanın yatay PageView'ı. İlk sayfa kapak (başlık + kategori
-// + özet + favori), sonraki sayfalar her kitabın kartı; altta nokta göstergesi.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/app_theme.dart';
 import '../../models/theme_cluster.dart';
 import '../../providers/favorites_provider.dart';
-import '../../widgets/page_dots.dart';
+import '../../widgets/atlas_motion.dart';
 import '../../widgets/similarity_chip.dart';
 import 'comparison_page.dart';
 import 'verse_card.dart';
 
-/// Kartların kanonik (tarafsız) gösterim sırası.
+/// Equal, canonical ordering across every topic.
 const List<String> kBookOrder = ['tevrat', 'zebur', 'incil', 'kuran'];
 
 class ThemePage extends ConsumerStatefulWidget {
   final ThemeCluster cluster;
-
   const ThemePage({super.key, required this.cluster});
-
   @override
   ConsumerState<ThemePage> createState() => _ThemePageState();
 }
 
 class _ThemePageState extends ConsumerState<ThemePage> {
-  final PageController _controller = PageController();
+  final _controller = PageController();
   int _index = 0;
+  final _tabKeys = List.generate(5, (_) => GlobalKey());
 
   @override
   void dispose() {
@@ -34,182 +30,262 @@ class _ThemePageState extends ConsumerState<ThemePage> {
     super.dispose();
   }
 
+  void _goTo(int index) => AtlasMotion.goToPage(context, _controller, index);
+
   @override
   Widget build(BuildContext context) {
-    final cluster = widget.cluster;
-    final pageCount = 1 + kBookOrder.length;
-
-    return SafeArea(
-      child: Column(
-        children: [
-          Expanded(
-            child: PageView(
-              controller: _controller,
-              onPageChanged: (i) => setState(() => _index = i),
+    final colors = Theme.of(context).colorScheme;
+    return Column(
+      children: [
+        Expanded(
+          child: PageView(
+            controller: _controller,
+            onPageChanged: (index) {
+              AtlasMotion.selection();
+              setState(() => _index = index);
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                if (!mounted) return;
+                final tabContext = _tabKeys[index].currentContext;
+                if (tabContext != null) {
+                  Scrollable.ensureVisible(
+                    tabContext,
+                    alignment: .5,
+                    duration: AtlasMotion.duration(context),
+                  );
+                }
+              });
+            },
+            children: [
+              _CoverCard(cluster: widget.cluster, onRead: () => _goTo(1)),
+              for (final book in kBookOrder)
+                VerseCard(
+                  book: book,
+                  entry: widget.cluster.entryFor(book),
+                  similarity: widget.cluster.similarity,
+                ),
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 58,
+          child: SingleChildScrollView(
+            key: const ValueKey('book-tabs'),
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            child: Row(
               children: [
-                _CoverCard(cluster: cluster),
-                for (final book in kBookOrder)
-                  VerseCard(
-                    book: book,
-                    entry: cluster.entryFor(book),
-                    similarity: cluster.similarity,
+                for (var index = 0; index < 5; index++)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 6),
+                    child: Semantics(
+                      key: _tabKeys[index],
+                      selected: index == _index,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: index == _index
+                              ? colors.onPrimary
+                              : colors.onSurfaceVariant,
+                          backgroundColor: index == _index
+                              ? colors.primary
+                              : colors.surfaceContainerLow,
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          minimumSize: const Size(48, 48),
+                          shape: const StadiumBorder(),
+                        ),
+                        onPressed: () => _goTo(index),
+                        child: Text(
+                          index == 0
+                              ? 'Genel bakış'
+                              : BookPalette.label(kBookOrder[index - 1]),
+                        ),
+                      ),
+                    ),
                   ),
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            child: PageDots(count: pageCount, currentIndex: _index),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
 class _CoverCard extends ConsumerWidget {
+  const _CoverCard({required this.cluster, required this.onRead});
   final ThemeCluster cluster;
-
-  const _CoverCard({required this.cluster});
+  final VoidCallback onRead;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = Theme.of(context);
-    final isFavorite = ref.watch(favoritesProvider).contains(cluster.id);
+    final isFavorite = ref.watch(
+      favoritesProvider.select((saved) => saved.contains(cluster.id)),
+    );
+    final text = Theme.of(context).textTheme;
+    const cream = Color(0xFFF8F3E6);
+    const muted = Color(0xFFBDCEC4);
+    void toggleFavorite() {
+      AtlasMotion.selection();
+      ref.read(favoritesProvider.notifier).toggle(cluster.id);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            isFavorite
+                ? 'Konu favorilerden çıkarıldı'
+                : 'Konu favorilere eklendi',
+          ),
+          duration: const Duration(seconds: 1),
+        ),
+      );
+    }
 
     return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 24, 30, 8),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(trUpper(cluster.category),
-                        style: AppTheme.kicker(context,
-                            color: theme.colorScheme.primary)),
-                    const SizedBox(height: 8),
-                    Container(
-                        width: 38,
-                        height: 2,
-                        color: theme.colorScheme.primary),
-                  ],
-                ),
-              ),
-              IconButton(
-                icon: Icon(
-                  isFavorite ? Icons.bookmark : Icons.bookmark_outline,
-                ),
-                color: isFavorite ? theme.colorScheme.primary : null,
-                tooltip:
-                    isFavorite ? 'Favorilerden çıkar' : 'Favorilere ekle',
-                onPressed: () =>
-                    ref.read(favoritesProvider.notifier).toggle(cluster.id),
-              ),
-            ],
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 4),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(32),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFF244B40), Color(0xFF112E27)],
           ),
-          const SizedBox(height: 18),
-          Text(
-            cluster.title,
-            style: theme.textTheme.displaySmall?.copyWith(height: 1.15),
-          ),
-          const SizedBox(height: 18),
-          SimilarityChip(similarity: cluster.similarity),
-          const SizedBox(height: 20),
-          Text(
-            cluster.summary,
-            style: theme.textTheme.bodyLarge?.copyWith(
-              height: 1.65,
-              color: theme.colorScheme.onSurface.withValues(alpha: 0.78),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF163B30).withValues(alpha: .12),
+              blurRadius: 16,
+              offset: const Offset(0, 6),
             ),
-          ),
-          const SizedBox(height: 24),
-          _TraditionDots(cluster: cluster),
-          const SizedBox(height: 24),
-          OutlinedButton.icon(
-            onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (_) => ComparisonPage(cluster: cluster),
-              ),
-            ),
-            icon: const Icon(Icons.view_agenda_outlined, size: 18),
-            label: const Text('Yan yana karşılaştır'),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Icon(
-                Icons.swipe,
-                size: 18,
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.4),
-              ),
-              const SizedBox(width: 8),
-              Flexible(
-                child: Text(
-                  'Kitaplar arasında geçmek için yana kaydırın',
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(32),
+          child: LayoutBuilder(
+            builder: (context, constraints) => SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Padding(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'DÖRT SES.\nORTAK BİR KEŞİF.',
+                                  style: AppTheme.kicker(
+                                    context,
+                                    color: muted,
+                                  ).copyWith(height: 1.7, fontSize: 10),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const AtlasMark(size: 64),
+                          const SizedBox(width: 8),
+                          IconButton.filledTonal(
+                            tooltip: isFavorite
+                                ? 'Favorilerden çıkar'
+                                : 'Favorilere ekle',
+                            style: IconButton.styleFrom(
+                              backgroundColor: cream.withValues(alpha: .1),
+                              foregroundColor: cream,
+                            ),
+                            onPressed: toggleFavorite,
+                            icon: AnimatedSwitcher(
+                              duration: AtlasMotion.duration(context, 180),
+                              child: Icon(
+                                isFavorite
+                                    ? Icons.bookmark_rounded
+                                    : Icons.bookmark_border_rounded,
+                                key: ValueKey(isFavorite),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Text(
+                        trUpper(cluster.category),
+                        style: AppTheme.kicker(
+                          context,
+                          color: const Color(0xFFF2BF91),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        cluster.title,
+                        style: text.displaySmall?.copyWith(
+                          color: cream,
+                          height: 1.13,
+                          letterSpacing: -1,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        cluster.summary,
+                        style: text.bodyMedium?.copyWith(
+                          color: muted,
+                          height: 1.65,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Theme(
+                        data: AppTheme.dark(),
+                        child: SimilarityChip(similarity: cluster.similarity),
+                      ),
+                      const SizedBox(height: 24),
+                      Wrap(
+                        spacing: 10,
+                        runSpacing: 10,
+                        children: [
+                          FilledButton.icon(
+                            style: FilledButton.styleFrom(
+                              backgroundColor: const Color(0xFFF2BF91),
+                              foregroundColor: const Color(0xFF17392F),
+                              minimumSize: const Size(0, 48),
+                              shape: const StadiumBorder(),
+                            ),
+                            onPressed: onRead,
+                            icon: const Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 18,
+                            ),
+                            label: const Text('Oku'),
+                          ),
+                          OutlinedButton.icon(
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: cream,
+                              side: const BorderSide(color: Color(0xFF78958A)),
+                              minimumSize: const Size(0, 48),
+                              shape: const StadiumBorder(),
+                            ),
+                            onPressed: () => Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    ComparisonPage(cluster: cluster),
+                              ),
+                            ),
+                            icon: const Icon(
+                              Icons.view_week_outlined,
+                              size: 18,
+                            ),
+                            label: const Text('Karşılaştır'),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ],
+            ),
           ),
-        ],
+        ),
       ),
-    );
-  }
-}
-
-/// Dört geleneği temsil eden imza motif: her kitap aksan rengiyle bir nokta;
-/// o temada karşılığı varsa dolu, yoksa içi boş.
-class _TraditionDots extends StatelessWidget {
-  final ThemeCluster cluster;
-
-  const _TraditionDots({required this.cluster});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Wrap(
-      spacing: 18,
-      runSpacing: 10,
-      children: [
-        for (final book in kBookOrder)
-          _dot(theme, book, cluster.entryFor(book) != null),
-      ],
-    );
-  }
-
-  Widget _dot(ThemeData theme, String book, bool present) {
-    final color = BookPalette.accent(book);
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 11,
-          height: 11,
-          decoration: BoxDecoration(
-            color: present ? color : Colors.transparent,
-            border: Border.all(color: color, width: 1.6),
-            shape: BoxShape.circle,
-          ),
-        ),
-        const SizedBox(width: 7),
-        Text(
-          BookPalette.label(book),
-          style: theme.textTheme.labelMedium?.copyWith(
-            color: present
-                ? theme.colorScheme.onSurface
-                : theme.colorScheme.onSurface.withValues(alpha: 0.4),
-            fontWeight: present ? FontWeight.w700 : FontWeight.w500,
-          ),
-        ),
-      ],
     );
   }
 }

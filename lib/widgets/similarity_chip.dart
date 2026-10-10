@@ -13,7 +13,10 @@ class SimilarityChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final (label, color) = _meta();
+    final (label, baseColor) = _meta();
+    final color = Theme.of(context).brightness == Brightness.dark
+        ? Color.lerp(baseColor, Colors.white, .55)!
+        : baseColor;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 11, vertical: 6),
       decoration: BoxDecoration(
@@ -30,13 +33,15 @@ class SimilarityChip extends StatelessWidget {
             decoration: BoxDecoration(color: color, shape: BoxShape.circle),
           ),
           const SizedBox(width: 8),
-          Text(
-            trUpper(label),
-            style: TextStyle(
-              color: color,
-              fontWeight: FontWeight.w700,
-              fontSize: 10.5,
-              letterSpacing: 1.0,
+          Flexible(
+            child: Text(
+              trUpper(label),
+              style: TextStyle(
+                color: color,
+                fontWeight: FontWeight.w700,
+                fontSize: 10.5,
+                letterSpacing: 1.0,
+              ),
             ),
           ),
         ],
