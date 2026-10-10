@@ -159,130 +159,166 @@ class _CoverCard extends ConsumerWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(32),
           child: LayoutBuilder(
-            builder: (context, constraints) => SingleChildScrollView(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                child: Padding(
-                  padding: const EdgeInsets.all(24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Expanded(
+            builder: (context, constraints) {
+              // Kısa kartlarda (orta segment telefonlarda akış başlığı, çipler
+              // ve alt menü alanı yer) içerik sığmıyor ve "Oku" düğmesi
+              // kartın altında, işaretsiz bir iç kaydırmanın arkasında
+              // kalıyordu. Artık düğmeler sabit; kompakt modda ayrıca dekor ve
+              // boşluklar sıkılaşır ki kaydırma nadiren gereksin.
+              final compact = constraints.maxHeight < 560;
+              return Padding(
+                padding: const EdgeInsets.all(24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Bilgi bloğu gerekirse kendi içinde kayar ve düğmelerin
+                    // hemen üstüne hizalanır; böylece grup bir arada kalır.
+                    Expanded(
+                      child: LayoutBuilder(
+                        builder: (context, inner) => SingleChildScrollView(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              minHeight: inner.maxHeight,
+                            ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          if (!compact)
+                                            Text(
+                                              'DÖRT SES.\nORTAK BİR KEŞİF.',
+                                              style:
+                                                  AppTheme.kicker(
+                                                    context,
+                                                    color: muted,
+                                                  ).copyWith(
+                                                    height: 1.7,
+                                                    fontSize: 10,
+                                                  ),
+                                            ),
+                                        ],
+                                      ),
+                                    ),
+                                    AtlasMark(size: compact ? 40 : 64),
+                                    const SizedBox(width: 8),
+                                    IconButton.filledTonal(
+                                      tooltip: isFavorite
+                                          ? 'Favorilerden çıkar'
+                                          : 'Favorilere ekle',
+                                      style: IconButton.styleFrom(
+                                        backgroundColor: cream.withValues(
+                                          alpha: .1,
+                                        ),
+                                        foregroundColor: cream,
+                                      ),
+                                      onPressed: toggleFavorite,
+                                      icon: AnimatedSwitcher(
+                                        duration: AtlasMotion.duration(
+                                          context,
+                                          180,
+                                        ),
+                                        child: Icon(
+                                          isFavorite
+                                              ? Icons.bookmark_rounded
+                                              : Icons.bookmark_border_rounded,
+                                          key: ValueKey(isFavorite),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: compact ? 8 : 20),
                                 Text(
-                                  'DÖRT SES.\nORTAK BİR KEŞİF.',
+                                  trUpper(cluster.category),
                                   style: AppTheme.kicker(
                                     context,
+                                    color: const Color(0xFFF2BF91),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Text(
+                                  cluster.title,
+                                  style:
+                                      (compact
+                                              ? text.headlineMedium
+                                              : text.displaySmall)
+                                          ?.copyWith(
+                                            color: cream,
+                                            height: 1.13,
+                                            letterSpacing: -1,
+                                          ),
+                                ),
+                                SizedBox(height: compact ? 10 : 16),
+                                Text(
+                                  cluster.summary,
+                                  style: text.bodyMedium?.copyWith(
                                     color: muted,
-                                  ).copyWith(height: 1.7, fontSize: 10),
+                                    height: 1.65,
+                                  ),
+                                ),
+                                SizedBox(height: compact ? 12 : 16),
+                                Theme(
+                                  data: AppTheme.dark(),
+                                  child: SimilarityChip(
+                                    similarity: cluster.similarity,
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                          const AtlasMark(size: 64),
-                          const SizedBox(width: 8),
-                          IconButton.filledTonal(
-                            tooltip: isFavorite
-                                ? 'Favorilerden çıkar'
-                                : 'Favorilere ekle',
-                            style: IconButton.styleFrom(
-                              backgroundColor: cream.withValues(alpha: .1),
-                              foregroundColor: cream,
-                            ),
-                            onPressed: toggleFavorite,
-                            icon: AnimatedSwitcher(
-                              duration: AtlasMotion.duration(context, 180),
-                              child: Icon(
-                                isFavorite
-                                    ? Icons.bookmark_rounded
-                                    : Icons.bookmark_border_rounded,
-                                key: ValueKey(isFavorite),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        trUpper(cluster.category),
-                        style: AppTheme.kicker(
-                          context,
-                          color: const Color(0xFFF2BF91),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      Text(
-                        cluster.title,
-                        style: text.displaySmall?.copyWith(
-                          color: cream,
-                          height: 1.13,
-                          letterSpacing: -1,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        cluster.summary,
-                        style: text.bodyMedium?.copyWith(
-                          color: muted,
-                          height: 1.65,
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      Theme(
-                        data: AppTheme.dark(),
-                        child: SimilarityChip(similarity: cluster.similarity),
-                      ),
-                      const SizedBox(height: 24),
-                      Wrap(
-                        spacing: 10,
-                        runSpacing: 10,
-                        children: [
-                          FilledButton.icon(
-                            style: FilledButton.styleFrom(
-                              backgroundColor: const Color(0xFFF2BF91),
-                              foregroundColor: const Color(0xFF17392F),
-                              minimumSize: const Size(0, 48),
-                              shape: const StadiumBorder(),
-                            ),
-                            onPressed: onRead,
-                            icon: const Icon(
-                              Icons.arrow_forward_rounded,
-                              size: 18,
-                            ),
-                            label: const Text('Oku'),
+                    ),
+                    SizedBox(height: compact ? 16 : 24),
+                    // Düğmeler kaydırma alanının dışında: ekran boyu, başlık
+                    // uzunluğu veya yazı boyutu ne olursa olsun görünür kalır.
+                    Wrap(
+                      spacing: 10,
+                      runSpacing: 10,
+                      children: [
+                        FilledButton.icon(
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFFF2BF91),
+                            foregroundColor: const Color(0xFF17392F),
+                            minimumSize: const Size(0, 48),
+                            shape: const StadiumBorder(),
                           ),
-                          OutlinedButton.icon(
-                            style: OutlinedButton.styleFrom(
-                              foregroundColor: cream,
-                              side: const BorderSide(color: Color(0xFF78958A)),
-                              minimumSize: const Size(0, 48),
-                              shape: const StadiumBorder(),
-                            ),
-                            onPressed: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) =>
-                                    ComparisonPage(cluster: cluster),
-                              ),
-                            ),
-                            icon: const Icon(
-                              Icons.view_week_outlined,
-                              size: 18,
-                            ),
-                            label: const Text('Karşılaştır'),
+                          onPressed: onRead,
+                          icon: const Icon(
+                            Icons.arrow_forward_rounded,
+                            size: 18,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                          label: const Text('Oku'),
+                        ),
+                        OutlinedButton.icon(
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: cream,
+                            side: const BorderSide(color: Color(0xFF78958A)),
+                            minimumSize: const Size(0, 48),
+                            shape: const StadiumBorder(),
+                          ),
+                          onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => ComparisonPage(cluster: cluster),
+                            ),
+                          ),
+                          icon: const Icon(Icons.view_week_outlined, size: 18),
+                          label: const Text('Karşılaştır'),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-              ),
-            ),
+              );
+            },
           ),
         ),
       ),
