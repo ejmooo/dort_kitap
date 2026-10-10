@@ -71,8 +71,9 @@ class AboutPage extends StatelessWidget {
           const _Section(
             icon: Icons.source_outlined,
             title: 'Kaynaklar',
-            body: '• Kur’an: Arapça (Uthmânî hat) ve Türkçe meal (Elmalılı Hamdi '
-                'Yazır) — kamu malı metinler.\n'
+            body: '• Kur’an: Arapça (Uthmânî hat, kamu malı) ve Elmalılı Hamdi '
+                'Yazır mealinin sadeleştirilmiş metni (Tanzil Projesi; ticari '
+                'olmayan kullanım).\n'
                 '• Tevrat/Zebur/İncil: Türkçe metin “Kutsal Kitap Yeni Çeviri”ye '
                 'dayanır ve telif hakkı saklıdır; İngilizce metin World English '
                 'Bible’dır (kamu malı).\n'

@@ -136,7 +136,7 @@ deneyip Console > Usage'dan ölçmek önerilir. Üretilen tüm paraleller arayü
 | Metin | Kaynak | Durum |
 |---|---|---|
 | Kur'an — Arapça (Uthmânî) | alquran.cloud | Kamu malı |
-| Kur'an — Türkçe meal | Elmalılı Hamdi Yazır (alquran.cloud) | Kamu malı |
+| Kur'an — Türkçe meal | Elmalılı Hamdi Yazır, **sadeleştirilmiş metin** (Tanzil → alquran.cloud) | **Yalnızca ticari olmayan kullanım** — Tanzil şartı. Özgün meal kamu malı; sadeleştirmenin hakları sadeleştirene ait. |
 | Kur'an — İngilizce | M. Pickthall (alquran.cloud) | Kamu malı |
 | Tevrat/Zebur/İncil — İngilizce | World English Bible (bible-api.com) | Kamu malı |
 | Tevrat/Zebur/İncil — Türkçe | Kutsal Kitap, Yeni Çeviri (getbible.net / CrossWire) | **Telifli, dağıtım izinli** |

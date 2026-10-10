@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # build_quran.py: tüm Kuran metnini (114 sûre / 6236 ayet) Arapça (Uthmânî) +
-# Türkçe meal (Elmalılı Hamdi Yazır, kamu malı) olarak çekip assets/data/quran.json
+# Türkçe meal (Elmalılı Hamdi Yazır, sadeleştirilmiş metin — Tanzil şartı gereği
+# yalnızca ticari olmayan kullanım) olarak çekip assets/data/quran.json
 # üretir. Her iki metin de tek istekle alınır (alquran.cloud).
 
 import json
@@ -84,8 +85,9 @@ def build():
         })
 
     out = {
-        "source": ("Arapça: Kur'an-ı Kerim (Uthmânî hat) · Türkçe meal: Elmalılı "
-                   "Hamdi Yazır — alquran.cloud (kamu malı metinler)"),
+        "source": ("Arapça: Kur'an-ı Kerim (Uthmânî hat, kamu malı) · Türkçe meal: "
+                   "Elmalılı Hamdi Yazır, sadeleştirilmiş metin — Tanzil/alquran.cloud "
+                   "(ticari olmayan kullanım)"),
         "surahs": surahs,
     }
     with open(OUT_PATH, "w", encoding="utf-8") as fh:
